@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  /* background-color: aqua; */
+}
+
+.Heading_div
+{
+    margin-top: 20px;
+    /* font-size: larger; */
+    color: red;
+    font-weight: 600;
+    text-decoration: underline;
+    /* background-color: aqua; */
+}

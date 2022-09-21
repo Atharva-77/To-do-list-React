@@ -1,0 +1,19 @@
+.Mainpg_div
+{
+    /* background-color: aquamarine; */
+}
+
+
+.Add-employee-button
+{
+    padding: 5px;
+    background-color: rgb(186, 253, 87,0.8);
+    font-weight: 550;
+    /* font-size: medium; */
+    border: 1px solid;
+}
+.Add-employee-button:hover
+{
+    font-weight: 750;
+    background-color: rgb(175, 245, 71);
+}

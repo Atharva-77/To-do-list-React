@@ -1,7 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './TableContent.css'
+import Form from './Form';
 
 function TableContent({firstName,lastName,empid,age}) {
+
+
+    const deleteEmployee=()=>
+    {
+        console.log("Deleted clicked",empid);
+        localStorage.removeItem(empid)
+        window.location.reload(false);
+    }
     return (
         <div className='TableContent'>
             {/* {firstName +"."+lastName+"." +empid+"." +age} */}
@@ -27,9 +37,20 @@ function TableContent({firstName,lastName,empid,age}) {
                     </div>
             </div>
 
-            <div>
-                <div>Hii</div>
-                <div>World</div>
+            <div className='Edit_delete_div'>
+                
+                <div className='Edit_div'>
+                    <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
+                         <span className='Edit_span'> Edit </span>
+                         
+                    </Link>
+                   
+                </div>
+                
+                <div className="Delete_div" onClick={deleteEmployee}>
+                    Delete
+                </div>
+
             </div>
            
         </div>

@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import './Form.css'
+import { useParams, useLocation } from 'react-router';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -7,12 +8,28 @@ import { useNavigate } from 'react-router-dom';
 function Form(props) {
     
     const navigate = useNavigate();
+    const {id}=useParams();
+    console.log("FORM",id,JSON.parse(localStorage.getItem(id)));
 
 
-    const [firstName,setFirstName]=useState('')
-    const [lastName,setLastName]=useState('')
-    const [empid,setEmpid]=useState('')
-    const [age,setAge]=useState('')
+    var intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
+
+    if(id!=undefined)
+    {
+        var data=JSON.parse( localStorage.getItem(id) );
+        
+        intial_Firstname=data.firstName;
+        initial_Lastname=data.lastName;
+        initial_empid=data.empid ;
+        initial_age=data.age;
+
+        button_value='Update Details'
+    }
+
+    const [firstName,setFirstName]=useState(intial_Firstname)
+    const [lastName,setLastName]=useState(initial_Lastname)
+    const [empid,setEmpid]=useState(initial_empid)
+    const [age,setAge]=useState(initial_age)
 
     const submitForm=()=>
     {
@@ -34,26 +51,26 @@ function Form(props) {
             
             <div className='input_Main_div'>
                 <div className='input_div'>
-                    <span> FirstName </span>  
+                    <span id='span_element'> FirstName </span>  
                     <input className='inputTag' type=""  value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='Enter First Name'/>
                 </div>
 
                 <div className='input_div'>
-                    <span> LastName </span>    
+                    <span id='span_element'> LastName </span>    
                     <input className='inputTag'type="" value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Enter Last Name'/>
                 </div>
                         
                 <div className='input_div'>
-                    <span className='span-id-age'> Id </span>  
+                    <span id='span_element' className='span-id-age'> Id </span>  
                     <input className='inputTag' type="Number"  value={empid} onChange={e=>setEmpid(e.target.value)} placeholder='Enter Employee Id'/>
                 </div>  
 
                 <div className='input_div'>
-                    <span className='span-id-age'>Age</span>    
+                    <span id='span_element' className='span-id-age'>Age</span>    
                     <input  className='inputTag' type="Number" value={age}  onChange={e=>setAge(e.target.value)} placeholder='Enter Your age'/>
                 </div>     
 
-                 <button className='button-add-update' onClick={submitForm}>Add Employee</button>  
+                 <button className='button-add-update' onClick={submitForm}>{button_value}</button>  
             </div>
        
             

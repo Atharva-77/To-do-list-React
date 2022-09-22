@@ -7,7 +7,7 @@ import Form from './Form';
 function App() {
   return (
     <div className="App">
-          <a href="/">
+          <a href="/" className='Anchortag_heading'>
                 <h2 className='Heading_div'>
                     To-Do-List
                 </h2>
@@ -15,6 +15,7 @@ function App() {
             
         <BrowserRouter >
               <Routes>
+                      <Route path="/form/:id" element={<Form />} />
                       <Route path="/form" element={<Form />} />
                       <Route path="/" element={<MainPg />} />
               </Routes>

@@ -18,6 +18,7 @@
     font-size: 25px;
     font-weight: 600;
     text-decoration: underline;
+    color: rgb(8, 108, 8);
 }
 .input_Main_div
 {
@@ -44,7 +45,7 @@
     width: 180px;
 }
 
-span{
+#span_element{
     /* margin-left: 20px; */
     /* text-align: center; */
     color: rgb(0, 124, 0);
@@ -62,7 +63,7 @@ span{
   
     padding: 5px;
     margin-bottom: 10px;
-    background-color: rgb(186, 253, 87,0.8);
+    background-color: var(--light-lessOpacity-green);
     font-weight: 550;
     /* font-size: medium; */
     border: 1px solid;
@@ -72,6 +73,6 @@ span{
 .button-add-update:hover
 {
     font-weight: 750;
-    background-color: rgb(175, 245, 71);
+    background-color: var( --light-moreOpacity-green);
     
 }

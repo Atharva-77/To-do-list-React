@@ -1,3 +1,10 @@
+:root
+{
+    --red: red;
+    --dark-green: green;
+    --light-lessOpacity-green: rgb(186, 253, 87,0.8);
+    --light-moreOpacity-green: rgb(175, 245, 71);
+}
 .App {
   text-align: center;
   /* background-color: aqua; */
@@ -7,8 +14,21 @@
 {
     margin-top: 20px;
     /* font-size: larger; */
-    color: red;
+    color: var(--red);
     font-weight: 600;
-    text-decoration: underline;
+    text-decoration: none;
     /* background-color: aqua; */
+}
+
+
+.Heading_div:hover
+{
+
+    text-decoration: underline;
+   
+}
+
+.Anchortag_heading
+{
+ text-decoration: none;
 }

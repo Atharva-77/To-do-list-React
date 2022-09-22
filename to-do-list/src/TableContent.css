@@ -2,7 +2,7 @@
 {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .TableContent_details
@@ -11,15 +11,56 @@
     align-content: space-evenly;
     grid-template-columns: auto auto auto auto;
 
-    margin: auto;
+    /* margin: auto; */
     margin-top: 15px;
     padding: 15px 10px;
     border: 2px solid;
-    width: 83%;
+    width: 80%;
     margin-bottom: 30px;
+    background-color: rgb(131, 255, 255,0.6);
 }
 
 .Table-headings
 {
-    color: red;
+    color: var(--red);
+    font-weight: 500;
+}
+
+.Edit_delete_div
+{
+    margin-left: 20px;
+}
+
+.Edit_div
+{
+    /* text-decoration: none; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* color: black; */
+}
+/* .Edit_div:hover
+{
+    color: green;
+} */
+.Edit_span  
+{
+    color: rgb(45, 176, 45);
+    font-weight: 500;
+}
+
+.Edit_span:hover
+{
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+.Delete_div
+{
+    color: var(--red);
+}
+
+.Delete_div:hover
+{
+   text-decoration: underline;
+    cursor: pointer;
 }

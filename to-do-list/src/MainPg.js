@@ -32,6 +32,8 @@ function MainPg(props) {
                 arr.map((i,b)=>
                 {
                     return <TableContent
+                            key={i.empid}
+                            
                             firstName={i.firstName}
                             lastName={i.lastName}
                             empid={i.empid}

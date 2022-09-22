@@ -5,23 +5,28 @@ import { useParams, useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
 
-function Form(props) {
-    
+function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee'}) {
+    // console.log("Props value",parentHandler("yo bro"));
     const navigate = useNavigate();
     const {id}=useParams();
-    console.log("FORM",id,JSON.parse(localStorage.getItem(id)));
+
+    const { query } = useLocation();
+   
+    // console.log("FORM",id,JSON.parse(localStorage.getItem(id)));
 
 
-    var intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
+    // var intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
 
     if(id!=undefined)
     {
-        var data=JSON.parse( localStorage.getItem(id) );
-        
-        intial_Firstname=data.firstName;
-        initial_Lastname=data.lastName;
-        initial_empid=data.empid ;
-        initial_age=data.age;
+        console.log("LOCN",id.split("+"));
+        // var data=JSON.parse( localStorage.getItem(id) );
+        let data=id.split("+");
+        // console.log();
+        intial_Firstname=data[1];
+        initial_Lastname=data[2];
+        initial_empid=Number(data[0]);
+        initial_age=Number(data[3]);
 
         button_value='Update Details'
     }
@@ -33,13 +38,16 @@ function Form(props) {
 
     const submitForm=()=>
     {
-        console.log(firstName,lastName,empid,age, localStorage);
+        // console.log(firstName,lastName,empid,age, localStorage);
 
-        localStorage.setItem(empid,JSON.stringify({
-                                        "firstName":firstName, 
-                                        "lastName":lastName, 
-                                        "empid":empid, 
-                                        "age": age}))
+        // localStorage.setItem(empid,JSON.stringify({
+        //                                 "firstName":firstName, 
+        //                                 "lastName":lastName, 
+        //                                 "empid":empid, 
+        //                                 "age": age}))
+
+        console.log("Props value",parentHandler(firstName,lastName,empid,age));
+
         navigate('/')
     }
     return (

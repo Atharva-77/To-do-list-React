@@ -63,6 +63,7 @@ function MainPg(props) {
             {!renderChild && !renderChildEdit &&
                 <>
                     <button className='Add-employee-button' onClick={renderFunc}>Add Employee</button>
+                    {/* <button className='Add-employee-button' onClick={renderFunc}>View Employee</button> */}
                     <table>
                         {firstName=='' && <h2>No Employee</h2>}
                         {/* <tr>
@@ -111,7 +112,7 @@ function MainPg(props) {
                                         </div>
                                     </td>
 
-                                    
+
                                 </tr>
                             </>
                         : null

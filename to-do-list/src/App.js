@@ -3,6 +3,8 @@ import './App.css';
 import MainPg from './MainPg';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import Form from './Form';
+import MainDataPg from './MainDataPg';
+import ViewEmp from './ViewEmp';
 
 function App() {
   return (
@@ -17,7 +19,8 @@ function App() {
               <Routes>
                       <Route path="/form/:id" element={<Form />} />
                       <Route path="/form" element={<Form />} />
-                      <Route path="/" element={<MainPg />} />
+                      <Route path="/view-employees" element={<ViewEmp />} />
+                      <Route path="/" element={<MainDataPg />} />
               </Routes>
         </BrowserRouter>
         

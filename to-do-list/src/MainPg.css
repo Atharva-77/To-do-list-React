@@ -17,3 +17,12 @@
     font-weight: 750;
     background-color: var( --light-moreOpacity-green);
 }
+table
+{
+    border-collapse: collapse;
+    /* border-spacing: 0px; */
+    /* border: 1px gray solid; */
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}

@@ -38,6 +38,15 @@
     margin-bottom: 20px;
     /* color: black; */
 }
+
+.Edit_div2
+{
+    /* text-decoration: none; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* color: black; */
+}
+
 /* .Edit_div:hover
 {
     color: green;
@@ -63,4 +72,11 @@
 {
    text-decoration: underline;
     cursor: pointer;
+}
+
+th,td{
+    padding: 5px;
+    border: 1px gray solid;
+    /* border-left: 1px solid red; */
+    /* border-right: 1px solid blue ; */
 }

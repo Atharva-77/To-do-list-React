@@ -13,48 +13,72 @@ function TableContent({firstName,lastName,empid,age}) {
         window.location.reload(false);
     }
     return (
-        <div className='TableContent'>
-            {/* {firstName +"."+lastName+"." +empid+"." +age} */}
-            <div className='TableContent_details'>
-                    <div>
-                        <div className='Table-headings'>FirstName</div>
-                        <div>{firstName}</div>
-                    </div>
+        // <div className='1TableContent'>
 
-                    <div>
-                        <div className='Table-headings'>LastName</div>
-                        <div>{lastName}</div>
-                    </div>
-                    
-                    <div>
-                        <div className='Table-headings'>Employee Id</div>
-                        <div>{empid}</div>
-                    </div>
-                    
-                    <div>
-                        <div className='Table-headings'>Age</div>
-                        <div>{age}</div>
-                    </div>
-            </div>
+           <>
+                <tr>
+                        <td>{firstName}</td>
+                        <td>{lastName}</td>
+                        <td>{empid}</td>
+                        <td>{age}</td>
 
-            <div className='Edit_delete_div'>
-                
-                <div className='Edit_div'>
-                    <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
-                         <span className='Edit_span'> Edit </span>
-                         
-                    </Link>
-                   
-                </div>
-                
-                <div className="Delete_div" onClick={deleteEmployee}>
-                    Delete
-                </div>
+                        <td>
+                            <div className='Edit_div2'>
+                                <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
+                                    <span className='Edit_span'> Edit </span> 
+                                </Link>
 
-            </div>
-           
-        </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div className="Delete_div" onClick={deleteEmployee}>
+                                Delete
+                            </div>
+                        </td>
+                        
+                </tr>
+          </>   
     );
 }
 
 export default TableContent;
+
+//  {/* {firstName +"."+lastName+"." +empid+"." +age} */}
+//  <div className='TableContent_details'>
+//  <div>
+//      <div className='Table-headings'>FirstName</div>
+//      <div>{firstName}</div>
+//  </div>
+
+//  <div>
+//      <div className='Table-headings'>LastName</div>
+//      <div>{lastName}</div>
+//  </div>
+ 
+//  <div>
+//      <div className='Table-headings'>Employee Id</div>
+//      <div>{empid}</div>
+//  </div>
+ 
+//  <div>
+//      <div className='Table-headings'>Age</div>
+//      <div>{age}</div>
+//  </div>
+// </div>
+
+// <div className='Edit_delete_div'>
+
+// <div className='Edit_div'>
+//  <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
+//       <span className='Edit_span'> Edit </span>
+      
+//  </Link>
+
+// </div>
+
+// <div className="Delete_div" onClick={deleteEmployee}>
+//  Delete
+// </div>
+
+// </div>

@@ -13,7 +13,7 @@ function MainPg(props) {
     for(i=0; i<l; i++)
     {
         keys=localStorage.key(i);
-        console.log(i,"Here value", localStorage.getItem(keys));
+        // console.log(i,"Here value", localStorage.getItem(keys));
         // arr.push( localStorage.getItem(keys));
        
         val=localStorage.getItem(keys);
@@ -28,20 +28,33 @@ function MainPg(props) {
                  <button className='Add-employee-button'>Add Employee</button>
             </Link>
             {/* </a> */}
-            {
-                arr.map((i,b)=>
+            <table>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Employee Id</th>
+                    <th>Age</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
                 {
-                    return <TableContent
-                            key={i.empid}
-                            
-                            firstName={i.firstName}
-                            lastName={i.lastName}
-                            empid={i.empid}
-                            age={i.age}
-                    />
-                    // console.log("MAP",a,b, a.age);
-                })
-            }
+                    arr.map((i,b)=>
+                    {
+                        return <TableContent
+                                key={i.empid}
+                                
+                                firstName={i.firstName}
+                                lastName={i.lastName}
+                                empid={i.empid}
+                                age={i.age}
+                        />
+                        // console.log("MAP",a,b, a.age);
+                    })
+                }
+            </table>
+
+ 
+
             {/* <TableContent /> */}
 
             {/* <Form /> */}

@@ -1,7 +1,16 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
+import {ColorContext} from './App'
 
 const ViewEmp = () => {
+  
+ 
+    const {f_name,setf_name}=useContext(ColorContext);
+    const {l_name,setl_name}=useContext(ColorContext);
+    const {emp_Id,setemp_Id}=useContext(ColorContext);
+    const {emp_Age,setemp_Age}=useContext(ColorContext);
+
+    // console.log("COLORS view",color,color2);
 
     let firstName,lastName,empid,age;
     const deleteEmployee=()=>
@@ -19,10 +28,10 @@ const ViewEmp = () => {
             <>
                 
                   <table>
-                        {firstName=='' && <h2>No Employee</h2>}
+                        {f_name=='' && <h2>No Employee</h2>}
                     
                         
-                        {firstName !=''?
+                        {f_name !=''?
                         
                             <>
                                 <tr>
@@ -35,15 +44,15 @@ const ViewEmp = () => {
                                 </tr>
                         
                                 <tr>
-                                    <td>{firstName}</td>
-                                    <td>{lastName}</td>
-                                    <td>{empid}</td>
-                                    <td>{age}</td>
+                                    <td>{f_name}</td>
+                                    <td>{l_name}</td>
+                                    <td>{emp_Id}</td>
+                                    <td>{emp_Age}</td>
                                 
                                     <td>
                                     
                                         <div className='Edit_div2'  >
-                                            <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
+                                            <Link to= {{ pathname: `/update-employee/${emp_Id}`}} style={{ textDecoration: 'none',color:'black'}} >
                                                 <span className='Edit_span'> Edit </span> 
                                                 {/* +${firstName}+${lastName}+${age} */}
                                             {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}

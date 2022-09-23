@@ -1,18 +1,27 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import './Form.css'
 import { useParams, useLocation } from 'react-router';
 
 import { useNavigate } from 'react-router-dom';
-
+import {ColorContext} from './App'
 
 function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee'}) {
+
+
+    const {f_name,setf_name}=useContext(ColorContext);
+    const {l_name,setl_name}=useContext(ColorContext);
+    const {emp_Id,setemp_Id}=useContext(ColorContext);
+    const {emp_Age,setemp_Age}=useContext(ColorContext);
+    
+
+    // console.log("COLORS FORM",color);
     // console.log("Props value",parentHandler("yo bro"));
     const navigate = useNavigate();
     const {id}=useParams();
 
     const { query } = useLocation();
    
-    // console.log("FORM",id,JSON.parse(localStorage.getItem(id)));
+    console.log("FORM",id);
 
 
     // var intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
@@ -31,10 +40,10 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         button_value='Update Details'
     }
 
-    const [firstName,setFirstName]=useState(intial_Firstname)
-    const [lastName,setLastName]=useState(initial_Lastname)
-    const [empid,setEmpid]=useState(initial_empid)
-    const [age,setAge]=useState(initial_age)
+    const [firstName,setFirstName]=useState(f_name  )
+    const [lastName,setLastName]=useState(l_name)
+    const [empid,setEmpid]=useState(emp_Id)
+    const [age,setAge]=useState(emp_Age)
 
     const submitForm=()=>
     {
@@ -46,9 +55,17 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         //                                 "empid":empid, 
         //                                 "age": age}))
 
-        console.log("Props value",parentHandler(firstName,lastName,empid,age));
+        // console.log("Props value",parentHandler(firstName,lastName,empid,age));
+        setf_name(firstName);
+        setl_name(lastName);
+        setemp_Id(empid);
+        setemp_Age(age);
 
-        navigate('/')
+        console.log("Here",button_value,button_value=='Update Details');
+        if(button_value=='Update Details')
+             navigate('/view-employees')
+        else
+            navigate('/')
     }
     return (
         <div className='Form_div'>

@@ -25,7 +25,8 @@ function App() {
   const [emp_Id,setemp_Id]=useState('')
   const [emp_Age,setemp_Age]=useState('')
   const [empDetails,setempDetails]=useState([])  
-  
+  const [allId,setallId]=useState(new Set())  
+
 
   {console.log("Color",f_name,l_name," Empdetails",empDetails);}
 
@@ -37,7 +38,7 @@ function App() {
                 </h2>
           </a>
 
-        <ColorContext.Provider value= {{f_name,setf_name, l_name,setl_name, emp_Id,setemp_Id, emp_Age,setemp_Age,empDetails,setempDetails}}>
+        <ColorContext.Provider value= {{f_name,setf_name, l_name,setl_name, emp_Id,setemp_Id, emp_Age,setemp_Age,empDetails,setempDetails,allId,setallId}}>
               {/* {f_name}{l_name} */}
               <BrowserRouter >
                     <Routes>

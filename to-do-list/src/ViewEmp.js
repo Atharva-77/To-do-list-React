@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 import {ColorContext} from './App'
+import ViewEachEmployee from './ViewEachEmployee';
 
 const ViewEmp = () => {
   
@@ -10,8 +11,9 @@ const ViewEmp = () => {
     const {emp_Id,setemp_Id}=useContext(ColorContext);
     const {emp_Age,setemp_Age}=useContext(ColorContext);
     const {empDetails,setempDetails}=useContext(ColorContext);
+    const {allId,setallId}=useContext(ColorContext);
 
-    console.log("COLORS view",empDetails);
+    console.log("COLORS view",typeof(empDetails),allId);
 
     let firstName,lastName,empid,age;
     const deleteEmployee=()=>
@@ -22,10 +24,10 @@ const ViewEmp = () => {
     }
 
     {
-        empDetails.map((x,y)=>
-        {
-            console.log(x.firstName,y);
-        })
+        // empDetails.map((x,y)=>
+        // {
+        //     console.log(x.firstName,y);
+        // })
     }
     
     return (
@@ -34,12 +36,12 @@ const ViewEmp = () => {
         
         {
             <>
-                
+               
                   <table>
-                        {f_name=='' && <h2>No Employee</h2>}
+                        {empDetails=='' && <h2>No Employee</h2>}
                     
                         
-                        {f_name !=''?
+                        {empDetails !=''?
                         
                             <>
                                 <tr>
@@ -51,22 +53,31 @@ const ViewEmp = () => {
                                     <th>Delete</th>
                                 </tr>
                         
-                                <tr>
-                                    <td>{f_name}</td>
+                                <>
+                                    { empDetails.map((i,y)=>
+                                        {
+                                                return <>
+                                                    <ViewEachEmployee 
+                                                    firstName={i.firstName} 
+                                                    lastName={i.lastName} 
+                                                    empid={i.empid} 
+                                                    age={i.age}/>
+                                                </>
+                                                
+                                        })
+                                    }
+                                    
+                                    {/* <td>{f_name}</td>
                                     <td>{l_name}</td>
                                     <td>{emp_Id}</td>
-                                    <td>{emp_Age}</td>
-                                    {/* {} */}
-                                   <td>
-                                   </td>
+                                    <td>{emp_Age}</td> */}
+                                
                                     
-                                    <td>
+                                    {/* <td>
                                     
                                         <div className='Edit_div2'  >
                                             <Link to= {{ pathname: `/update-employee/${emp_Id}`}} style={{ textDecoration: 'none',color:'black'}} >
                                                 <span className='Edit_span'> Edit </span> 
-                                                {/* +${firstName}+${lastName}+${age} */}
-                                            {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}
 
                                             </Link>
                                         </div>
@@ -77,10 +88,10 @@ const ViewEmp = () => {
                                         <div className="Delete_div" onClick={deleteEmployee}>
                                             Delete
                                         </div>
-                                    </td>
+                                    </td> */}
 
 
-                                </tr>
+                                </>
                             </>
                         : null
 

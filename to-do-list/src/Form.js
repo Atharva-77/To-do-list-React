@@ -5,14 +5,16 @@ import { useParams, useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import {ColorContext} from './App'
 
-function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee'}) {
+function Form() {
 
+    // {parentHandler,intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee'}
 
     const {f_name,setf_name}=useContext(ColorContext);
     const {l_name,setl_name}=useContext(ColorContext);
     const {emp_Id,setemp_Id}=useContext(ColorContext);
     const {emp_Age,setemp_Age}=useContext(ColorContext);
     const {empDetails,setempDetails}=useContext(ColorContext);
+    const {allId,setallId}=useContext(ColorContext);
 
     // console.log("COLORS FORM",color);
     // console.log("Props value",parentHandler("yo bro"));
@@ -24,7 +26,7 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
     console.log("FORM",id);
 
 
-    // let intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
+    let intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
 
     if(id!=undefined)
     {
@@ -36,13 +38,22 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         // initial_Lastname=data[2];
         // initial_empid=Number(data[0]);
         // initial_age=Number(data[3]);
-       
-        intial_Firstname=f_name;
-        initial_Lastname=l_name;
-        initial_empid=emp_Id;
-        initial_age=emp_Age;
+        const idOfEmp= empDetails.filter((i)=>
+        {
+            if(i.empid==id)
+            return i;
+            // console.log("Val",i.firstName);
+        })
+        console.log("ID IS",idOfEmp[0]);
+
+        intial_Firstname=idOfEmp[0].firstName;
+        initial_Lastname=idOfEmp[0].lastName;
+        initial_empid=idOfEmp[0].empid;
+        initial_age=idOfEmp[0].age;
 
         button_value='Update Details'
+
+        console.log("VAL IN IF",emp_Id);
     }
     // else
     // {
@@ -53,7 +64,12 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
     const [lastName,setLastName]=useState(initial_Lastname)
     const [empid,setEmpid]=useState(initial_empid)
     const [age,setAge]=useState(initial_age)
+    const [idpresent,setidpresent]=useState(false)
+    const [message,setmessage]=useState('Id Already exists')
+    // let idpresent_Toggle=false;
+    // const [leftOverEmp,setleftOverEmp]=useState()
 
+    
     const submitForm=()=>
     {
         // console.log(firstName,lastName,empid,age, localStorage);
@@ -71,19 +87,98 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         //                                 "age": age}))
 
         // console.log("Props value",parentHandler(firstName,lastName,empid,age));
-        setf_name(firstName);
-        setl_name(lastName);
-        setemp_Id(empid);
-        setemp_Age(age);
-        setempDetails([...empDetails,empInfo])
+        // setf_name(firstName);
+        // setl_name(lastName);
+        // setemp_Id(empid);
+        // setemp_Age(age);
+
+        // setf_name('');
+        // setl_name('');
+        // setemp_Id('');
+        // setemp_Age('age');
+
+        // setempDetails([...empDetails,empInfo])
 
         // console.log(...empDetails);
         // console.log("Here",button_value,button_value=='Update Details');
 
-        if(button_value=='Update Details')
-             navigate('/view-employees')
+        // setallId(prev =>new Set([...prev,empid]))
+
+        if(idpresent)
+        {
+            setmessage("Id already present. Please enter Different Id")
+        }
         else
-            navigate('/')
+        {
+            setallId(new Set([...allId,empid]))
+
+            if(button_value=='Update Details')
+            {
+                // setempDetails([...empDetails,empInfo)
+                let leftOverEmp=[]
+                const UpdatedEmp=empDetails.filter((i)=>
+                {
+                    if(i.empid!=empid)
+                    {
+                        leftOverEmp.push(i)
+                        // setempDetails([...empDetails,i])
+                        console.log(i);
+                        return i;
+                    }
+                })
+                leftOverEmp.push(empInfo)
+                setempDetails(leftOverEmp)
+    
+                console.log("UPDATED EMP",leftOverEmp,empInfo);
+    
+                navigate('/view-employees')
+            }
+                
+            else
+            {
+                navigate('/')
+                setempDetails([...empDetails,empInfo])
+            }
+        }
+       
+           
+    }
+
+    const employeeIDFunc=(e)=>
+    {
+       console.log("EE",e);
+
+         const seeID_Used_Before=[...allId].filter((i)=>
+        {
+            if(i==e)
+             { 
+                // setidpresent(true);
+                // idpresent_Toggle=true;
+                 console.log("BEFORE-ID",i);
+                 setmessage("Id Already exists")
+                 return "haha";
+              }
+            //   else
+            //   {
+            //     setidpresent(false);
+            //   }
+        })
+        
+        if(seeID_Used_Before.length>0)
+            setidpresent(true);
+        else
+            setidpresent(false)
+        
+
+        console.log("IDID",idpresent,seeID_Used_Before.length,typeof(seeID_Used_Before));
+
+        if(button_value=='Update Details')
+            setEmpid(initial_empid)
+
+        else
+        setEmpid(e);
+
+        
     }
     return (
         <div className='Form_div'>
@@ -92,6 +187,8 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
                     Employee Form
             </div>
             
+            {idpresent && <span>{message}</span>}
+
             <div className='input_Main_div'>
                 <div className='input_div'>
                     <span id='span_element'> FirstName </span>  
@@ -105,7 +202,7 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
                         
                 <div className='input_div'>
                     <span id='span_element' className='span-id-age'> Id </span>  
-                    <input className='inputTag' type="Number"  value={empid} onChange={e=>setEmpid(e.target.value)} placeholder='Enter Employee Id'/>
+                    <input className='inputTag' type="Number"  value={empid} onChange={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
                 </div>  
 
                 <div className='input_div'>

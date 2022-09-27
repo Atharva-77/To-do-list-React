@@ -12,7 +12,7 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
     const {l_name,setl_name}=useContext(ColorContext);
     const {emp_Id,setemp_Id}=useContext(ColorContext);
     const {emp_Age,setemp_Age}=useContext(ColorContext);
-    
+    const {empDetails,setempDetails}=useContext(ColorContext);
 
     // console.log("COLORS FORM",color);
     // console.log("Props value",parentHandler("yo bro"));
@@ -24,7 +24,7 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
     console.log("FORM",id);
 
 
-    // var intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
+    // let intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
 
     if(id!=undefined)
     {
@@ -32,23 +32,38 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         // var data=JSON.parse( localStorage.getItem(id) );
         let data=id.split("+");
         // console.log();
-        intial_Firstname=data[1];
-        initial_Lastname=data[2];
-        initial_empid=Number(data[0]);
-        initial_age=Number(data[3]);
+        // intial_Firstname=data[1];
+        // initial_Lastname=data[2];
+        // initial_empid=Number(data[0]);
+        // initial_age=Number(data[3]);
+       
+        intial_Firstname=f_name;
+        initial_Lastname=l_name;
+        initial_empid=emp_Id;
+        initial_age=emp_Age;
 
         button_value='Update Details'
     }
+    // else
+    // {
 
-    const [firstName,setFirstName]=useState(f_name  )
-    const [lastName,setLastName]=useState(l_name)
-    const [empid,setEmpid]=useState(emp_Id)
-    const [age,setAge]=useState(emp_Age)
+    // }
+
+    const [firstName,setFirstName]=useState(intial_Firstname)
+    const [lastName,setLastName]=useState(initial_Lastname)
+    const [empid,setEmpid]=useState(initial_empid)
+    const [age,setAge]=useState(initial_age)
 
     const submitForm=()=>
     {
         // console.log(firstName,lastName,empid,age, localStorage);
-
+        const empInfo=
+        {
+            "firstName":firstName, 
+            "lastName":lastName, 
+            "empid":empid, 
+            "age": age
+        }
         // localStorage.setItem(empid,JSON.stringify({
         //                                 "firstName":firstName, 
         //                                 "lastName":lastName, 
@@ -60,8 +75,11 @@ function Form({parentHandler,intial_Firstname='', initial_Lastname='', initial_e
         setl_name(lastName);
         setemp_Id(empid);
         setemp_Age(age);
+        setempDetails([...empDetails,empInfo])
 
-        console.log("Here",button_value,button_value=='Update Details');
+        // console.log(...empDetails);
+        // console.log("Here",button_value,button_value=='Update Details');
+
         if(button_value=='Update Details')
              navigate('/view-employees')
         else

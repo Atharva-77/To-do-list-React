@@ -1,3 +1,11 @@
+//Arrys of objs, validation for id
+//hide logs, bank sapces, remove unused variables
+//New create context
+//New components
+//New branch push
+//Color change
+//CSS best practise
+
 import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -16,9 +24,10 @@ function App() {
   const [l_name,setl_name]=useState('')
   const [emp_Id,setemp_Id]=useState('')
   const [emp_Age,setemp_Age]=useState('')
+  const [empDetails,setempDetails]=useState([])  
   
 
-  {console.log("Color",f_name,l_name);}
+  {console.log("Color",f_name,l_name," Empdetails",empDetails);}
 
   return (
     <div className="App">
@@ -28,7 +37,7 @@ function App() {
                 </h2>
           </a>
 
-        <ColorContext.Provider value= {{f_name,setf_name, l_name,setl_name, emp_Id,setemp_Id, emp_Age,setemp_Age}}>
+        <ColorContext.Provider value= {{f_name,setf_name, l_name,setl_name, emp_Id,setemp_Id, emp_Age,setemp_Age,empDetails,setempDetails}}>
               {/* {f_name}{l_name} */}
               <BrowserRouter >
                     <Routes>

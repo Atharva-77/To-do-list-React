@@ -9,8 +9,9 @@ const ViewEmp = () => {
     const {l_name,setl_name}=useContext(ColorContext);
     const {emp_Id,setemp_Id}=useContext(ColorContext);
     const {emp_Age,setemp_Age}=useContext(ColorContext);
+    const {empDetails,setempDetails}=useContext(ColorContext);
 
-    // console.log("COLORS view",color,color2);
+    console.log("COLORS view",empDetails);
 
     let firstName,lastName,empid,age;
     const deleteEmployee=()=>
@@ -18,6 +19,13 @@ const ViewEmp = () => {
         console.log("Deleted clicked",empid);
         // localStorage.removeItem(empid)
         window.location.reload(false);
+    }
+
+    {
+        empDetails.map((x,y)=>
+        {
+            console.log(x.firstName,y);
+        })
     }
     
     return (
@@ -48,7 +56,10 @@ const ViewEmp = () => {
                                     <td>{l_name}</td>
                                     <td>{emp_Id}</td>
                                     <td>{emp_Age}</td>
-                                
+                                    {/* {} */}
+                                   <td>
+                                   </td>
+                                    
                                     <td>
                                     
                                         <div className='Edit_div2'  >

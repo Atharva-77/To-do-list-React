@@ -5,7 +5,7 @@ import { ColorContext } from './Context'
 import './ViewComponent.css'
 //Change compo name
 //Link new compo. No inline style
-const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
+const ViewComponent = ({firstName,lastName,empid,age}) => {
 
     const {empDetails,setempDetails}=useContext(ColorContext);
     const {allId,setallId}=useContext(ColorContext);
@@ -58,10 +58,10 @@ const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
 
             <td>
                                     
-                <div className='Edit_div2'  >
+                <div className='edit_Container'  >
                     {/* style={{ textDecoration: 'none',color:'black'}} */}
                     <Link to= {{ pathname: `/update-employee/${empid}`}} className="link" >
-                        <span className='Edit_span'> Edit </span> 
+                        <span className='edit_Span'> Edit </span> 
                         {/* +${firstName}+${lastName}+${age} */}
                     {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}
 
@@ -71,7 +71,7 @@ const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
             </td>
 
             <td>
-                <div className="Delete_div" onClick={()=>deleteEmployee(empid)}>
+                <div className="delete_Div" onClick={()=>deleteEmployee(empid)}>
                     Delete
                 </div>
             </td>
@@ -79,4 +79,4 @@ const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
     );
 };
 
-export default ViewEachEmployee;
+export default ViewComponent;

@@ -1,4 +1,4 @@
-.Form_div
+.form_Div
 {
     /* display: flex; */
     margin-top: 10px;
@@ -10,7 +10,7 @@
     border: 1px solid;
    
 }
-.Form_title
+.form_Title
 {
     margin-top: 20px;
     /* margin-left: 53px; */
@@ -20,18 +20,19 @@
     text-decoration: underline;
     color: rgb(8, 108, 8);
 }
-.input_Main_div
+.input_Main_Container
 {
-    /* display: flex; */
+   
+    display: inline-block;
     padding-bottom: 10px;
 }
 
-.input_Main_div
+/* .input_Main_Container
 {
-    display: inline-block;
-    /* justify-content: space-between; */
-}
-.input_div
+    display: flex;
+    justify-content: space-between;
+} */
+.input_Container
 {
     display: flex;
     justify-content: space-between;
@@ -46,7 +47,7 @@
     /* border:1px solid red; */
 }
 
-#span_element{
+#span_Element{
     /* margin-left: 20px; */
     /* text-align: center; */
     color: rgb(0, 124, 0);

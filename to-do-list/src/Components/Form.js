@@ -249,30 +249,31 @@ function Form() {
     }
 
     return (
-        <div className='Form_div'>
+        <div className='form_Div'>
          
-            <div className='Form_title'>
+            <div className='form_Title'>
                     Employee Form
             </div>
             
             {idpresent && <span>{message}</span>}
 
-            <div className='input_Main_div'>
-                <div className='input_div'>
-                    <span id='span_element'> FirstName </span>  
+            <div className='input_Main_Container'>
+                
+                <div className='input_Container'>
+                    <span id='span_Element'> FirstName </span>  
                     <InputComponent className_Prop='inputTag' value_Prop={firstName} onChange_Prop={e=>firstNameFunc(e)} placeholder='Enter First Name'/>
 
                     {/* <input className='inputTag' type=""  value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='Enter First Name'/> */}
                 </div>
 
-                <div className='input_div'>
-                    <span id='span_element'> LastName </span>    
+                <div className='input_Container'>
+                    <span id='span_Element'> LastName </span>    
                     <InputComponent className_Prop='inputTag' value_Prop={lastName} onChange_Prop={e=>lastNameFunc(e)} placeholder='Enter Last Name'/>
                     {/* <input className='inputTag'type="" value={lastName} onChange={e=>lastNameFunc(e)} placeholder='Enter Last Name'/> */}
                 </div>
                         
-                <div className='input_div'>
-                    <span id='span_element' className='span-id-age'> Id </span>  
+                <div className='input_Container'>
+                    <span id='span_Element' className='span-id-age'> Id </span>  
                   
                     {button_Value=='Update Details'
                         ? 
@@ -286,8 +287,8 @@ function Form() {
                     {/* <input className='inputTag' type="Number" disabled value={empid} onChange={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/> */}
                 </div>  
 
-                <div className='input_div'>
-                    <span id='span_element' className='span-id-age'>Age</span>    
+                <div className='input_Container'>
+                    <span id='span_Element' className='span-id-age'>Age</span>    
                      <InputComponent className_Prop='inputTag' type_Prop="Number" value_Prop={age} onChange_Prop={e=>ageFunc(e)} placeholder='Enter Your age'/>
                     {/* <input  className='inputTag' type="Number" value={age}  onChange={e=>ageFunc(e)} placeholder='Enter Your age'/> */}
                 </div>     

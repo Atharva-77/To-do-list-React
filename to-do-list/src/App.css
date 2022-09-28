@@ -10,7 +10,7 @@
   /* background-color: aqua; */
 }
 
-.Heading_div
+.heading_Div
 {
     margin-top: 20px;
     /* font-size: larger; */
@@ -21,14 +21,14 @@
 }
 
 
-.Heading_div:hover
+.heading_Div:hover
 {
 
     text-decoration: underline;
    
 }
 
-.Anchortag_heading
+.anchortag_heading
 {
  text-decoration: none;
 }

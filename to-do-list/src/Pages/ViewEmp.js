@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 // import {ColorContext} from './App'
-import ViewEachEmployee from '../Components/ViewComponent';
+import ViewComponent from '../Components/ViewComponent';
 import { ColorContext } from '../Components/Context'
 const ViewEmp = () => {
   
@@ -31,7 +31,7 @@ const ViewEmp = () => {
     }
     
     return (
-        <div className='Mainpg_div'>
+        <div className='ViewEmp'>
            
         
         {
@@ -58,7 +58,7 @@ const ViewEmp = () => {
                                     { empDetails.map((i,y)=>
                                         {
                                                 return <>
-                                                    <ViewEachEmployee 
+                                                    <ViewComponent 
                                                     firstName={i.firstName} 
                                                     lastName={i.lastName} 
                                                     empid={i.empid} 

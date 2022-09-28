@@ -35,7 +35,7 @@ function App() {
 //   const [l_name,setl_name]=useState('')
 //   const [emp_Id,setemp_Id]=useState('')
 //   const [emp_Age,setemp_Age]=useState('')
-  const [empDetails,setempDetails]=useState([])  //empName
+  const [empDetails,setempDetails]=useState([]) 
   const [allId,setallId]=useState(new Set())  
 
 
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-          {/* <a href="/" className='Anchortag_heading'>
+          {/* <a href="/" className='anchortag_heading'>
                 <h2 className='Heading_div'>
                     11 To-Do-List
                 </h2>

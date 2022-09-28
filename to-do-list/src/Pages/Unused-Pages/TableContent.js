@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './TableContent.css'
-import Form from './Form';
+import Form from '../../Components/Form';
 
 function TableContent({firstName,lastName,empid,age}) {
 

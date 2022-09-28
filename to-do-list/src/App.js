@@ -1,54 +1,90 @@
-//Arrys of objs, validation for id
+      //Arrys of objs, validation for id
 //hide logs, bank sapces, remove unused variables
-//New create context
-//New components
-//New branch push
+      //New create context
+
+      //New components
+      //New branch push
 //Color change
 //CSS best practise
+//Change css classname
+      // Add link to to-d-list
+
+//Pages & compo...
+//git merge
+//git conflict
+//git amendment
+
 
 import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MainPg from './MainPg';
+import MainPg from './Pages/Unused-Pages/MainPg';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
-import Form from './Form';
-import MainDataPg from './MainDataPg';
-import ViewEmp from './ViewEmp';
-import CallForm from './CallForm';
+import Form from './Components/Form';
+import MainDataPg from './Pages/MainDataPg';
+import ViewEmp from './Pages/ViewEmp';
+import CallForm from './Pages/Unused-Pages/CallForm';
 
-export const ColorContext=React.createContext("hello");
+// export const ColorContext=React.createContext();
+import { ColorContext } from './Components/Context'
+import Heading from './Components/Heading';
 
 function App() {
-  
-  const [f_name,setf_name]=useState('')
-  const [l_name,setl_name]=useState('')
-  const [emp_Id,setemp_Id]=useState('')
-  const [emp_Age,setemp_Age]=useState('')
-  const [empDetails,setempDetails]=useState([])  
+  //comment these 4.
+//   const [f_name,setf_name]=useState('')
+//   const [l_name,setl_name]=useState('')
+//   const [emp_Id,setemp_Id]=useState('')
+//   const [emp_Age,setemp_Age]=useState('')
+  const [empDetails,setempDetails]=useState([])  //empName
   const [allId,setallId]=useState(new Set())  
 
 
-  {console.log("Color",f_name,l_name," Empdetails",empDetails);}
+  {console.log(" Empdetails",empDetails);}
 
   return (
     <div className="App">
-          <a href="/" className='Anchortag_heading'>
+          {/* <a href="/" className='Anchortag_heading'>
                 <h2 className='Heading_div'>
-                    To-Do-List
+                    11 To-Do-List
                 </h2>
-          </a>
-
-        <ColorContext.Provider value= {{f_name,setf_name, l_name,setl_name, emp_Id,setemp_Id, emp_Age,setemp_Age,empDetails,setempDetails,allId,setallId}}>
+          </a> */}
+           
+        <ColorContext.Provider value= {{empDetails,setempDetails,allId,setallId}}>
               {/* {f_name}{l_name} */}
               <BrowserRouter >
-                    <Routes>
-                            <Route path="/update-employee/:id" element={<Form />} />
-                            <Route path="/add-employee" element={<Form />} />
+                        <Routes>
+                   
+                            <Route path="/update-employee/:id" element= 
+                                                {
+                                                      <>
+                                                            <Heading />
+                                                            <Form />
+                                                      </>
+                                                } /> 
+                            <Route path="/add-employee" element=
+                                                {
+                                                      <>
+                                                            <Heading />
+                                                            <Form />
+                                                      </>
+                                                } />
+                                                
+                            <Route path="/view-employees" element= 
+                                                {
+                                                      <>
+                                                            <Heading />
+                                                            <ViewEmp />
+                                                      </>
+                                                } />
 
-                            <Route path="/view-employees" element={<ViewEmp />} />
-
-                            <Route path="/" element={<MainDataPg />} />
-                    </Routes>
+                            <Route path="/" element= 
+                                                {
+                                                      <>
+                                                            <Heading />
+                                                           <MainDataPg />
+                                                      </>
+                                                } />
+                         </Routes>
               </BrowserRouter>
 
          </ColorContext.Provider>

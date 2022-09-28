@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Form from './Form';
+import Form from '../../Components/Form';
 import './MainPg.css'
 import { Link } from 'react-router-dom';
 import TableContent from './TableContent';

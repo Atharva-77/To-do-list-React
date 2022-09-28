@@ -1,6 +1,6 @@
 import React,{useContext, useState} from 'react';
 import { Form } from 'react-router-dom';
-import {ColorContext} from './MainDataPg'
+import {ColorContext} from '../MainDataPg'
 
 const CallForm = () => {
     const {color,setcolor}=useContext(ColorContext);

@@ -1,8 +1,8 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-import {ColorContext} from './App'
-import ViewEachEmployee from './ViewEachEmployee';
-
+// import {ColorContext} from './App'
+import ViewEachEmployee from '../Components/ViewComponent';
+import { ColorContext } from '../Components/Context'
 const ViewEmp = () => {
   
  
@@ -54,6 +54,7 @@ const ViewEmp = () => {
                                 </tr>
                         
                                 <>
+                                {/* Change i name. Use body , header in table */}
                                     { empDetails.map((i,y)=>
                                         {
                                                 return <>

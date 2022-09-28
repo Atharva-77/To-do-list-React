@@ -1,7 +1,10 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-import {ColorContext} from './App'
-
+// import {ColorContext} from './App'
+import { ColorContext } from './Context'
+import './ViewComponent.css'
+//Change compo name
+//Link new compo. No inline style
 const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
 
     const {empDetails,setempDetails}=useContext(ColorContext);
@@ -56,7 +59,8 @@ const ViewEachEmployee = ({firstName,lastName,empid,age}) => {
             <td>
                                     
                 <div className='Edit_div2'  >
-                    <Link to= {{ pathname: `/update-employee/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
+                    {/* style={{ textDecoration: 'none',color:'black'}} */}
+                    <Link to= {{ pathname: `/update-employee/${empid}`}} className="link" >
                         <span className='Edit_span'> Edit </span> 
                         {/* +${firstName}+${lastName}+${age} */}
                     {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}

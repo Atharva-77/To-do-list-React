@@ -1,10 +1,8 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-// import {ColorContext} from './App'
 import { ColorContext } from './Context'
 import './ViewComponent.css'
-//Change compo name
-//Link new compo. No inline style
+
 const ViewComponent = ({firstName,lastName,empid,age}) => {
 
     const {empDetails,setempDetails}=useContext(ColorContext);
@@ -12,40 +10,17 @@ const ViewComponent = ({firstName,lastName,empid,age}) => {
 
     const deleteEmployee=()=>
     {
-        console.log("Deleted clicked",empid);
-        console.log("emppp",empDetails);
+      
         const leftOverEmp= empDetails.filter((i)=>
         {
             if(i.empid!=empid)
             return i;
-            // console.log("Val",i.firstName);
+  
         })
+
         setempDetails(leftOverEmp)
         setallId(new Set([...allId].filter(i=>i!=empid) ) );
 
-        // const deleteEmpId=[...allId].filter((i)=>
-        // {
-        //     if(i!=empid)
-        //      { 
-        //        console.log("DELETE-ID",i);
-        //          return i;
-        //       }
-        // })
-        console.log("AA2",allId);
-
-        // const deleteEmpId=
-        // const deleteEmpId=allId.filter((i)=>
-        // {
-        //     // if(i.empid!=empid)
-        // //    { 
-        //     console.log("DELETE-ID",i);
-        //     //  return i;}
-        // })
-        
-        // setallId()
-        console.log("AA",allId);
-        // localStorage.removeItem(empid)
-        // window.location.reload(false);
 
     }
 
@@ -59,12 +34,8 @@ const ViewComponent = ({firstName,lastName,empid,age}) => {
             <td>
                                     
                 <div className='edit_Container'  >
-                    {/* style={{ textDecoration: 'none',color:'black'}} */}
                     <Link to= {{ pathname: `/update-employee/${empid}`}} className="link" >
                         <span className='edit_Span'> Edit </span> 
-                        {/* +${firstName}+${lastName}+${age} */}
-                    {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}
-
                     </Link>
                 </div>
 
@@ -74,6 +45,7 @@ const ViewComponent = ({firstName,lastName,empid,age}) => {
                 <div className="delete_Div" onClick={()=>deleteEmployee(empid)}>
                     Delete
                 </div>
+                
             </td>
         </tr>
     );

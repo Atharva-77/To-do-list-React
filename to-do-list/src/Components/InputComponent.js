@@ -1,5 +1,6 @@
 import React from 'react';
 import './InputComponent.css'
+
 function InputComponent({className_Prop,disabled_Prop=false ,type_Prop, value_Prop, onChange_Prop, placeholder}) {
     return (
         <>

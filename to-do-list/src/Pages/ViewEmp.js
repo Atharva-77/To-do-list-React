@@ -3,107 +3,64 @@ import { Link } from 'react-router-dom';
 // import {ColorContext} from './App'
 import ViewComponent from '../Components/ViewComponent';
 import { ColorContext } from '../Components/Context'
+
 const ViewEmp = () => {
   
- 
-    const {f_name,setf_name}=useContext(ColorContext);
-    const {l_name,setl_name}=useContext(ColorContext);
-    const {emp_Id,setemp_Id}=useContext(ColorContext);
-    const {emp_Age,setemp_Age}=useContext(ColorContext);
     const {empDetails,setempDetails}=useContext(ColorContext);
     const {allId,setallId}=useContext(ColorContext);
-
-    console.log("COLORS view",typeof(empDetails),allId);
-
-    let firstName,lastName,empid,age;
-    const deleteEmployee=()=>
-    {
-        console.log("Deleted clicked",empid);
-        // localStorage.removeItem(empid)
-        window.location.reload(false);
-    }
-
-    {
-        // empDetails.map((x,y)=>
-        // {
-        //     console.log(x.firstName,y);
-        // })
-    }
     
+
     return (
         <div className='ViewEmp'>
            
         
-        {
-            <>
-               
-                  <table>
-                        {empDetails=='' && <h2>No Employee</h2>}
-                    
+            {
+                <>
+                
+                    <table>
+                            {empDetails=='' && <h2>No Employee</h2>}
                         
-                        {empDetails !=''?
-                        
-                            <>
-                                <tr>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
-                                    <th>Employee Id</th>
-                                    <th>Age</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                </tr>
-                        
+                            
+                            {empDetails !=''?
+                            
                                 <>
-                                {/* Change i name. Use body , header in table */}
-                                    { empDetails.map((i,y)=>
-                                        {
-                                                return <>
-                                                    <ViewComponent 
-                                                    firstName={i.firstName} 
-                                                    lastName={i.lastName} 
-                                                    empid={i.empid} 
-                                                    age={i.age}/>
-                                                </>
-                                                
-                                        })
-                                    }
-                                    
-                                    {/* <td>{f_name}</td>
-                                    <td>{l_name}</td>
-                                    <td>{emp_Id}</td>
-                                    <td>{emp_Age}</td> */}
-                                
-                                    
-                                    {/* <td>
-                                    
-                                        <div className='Edit_div2'  >
-                                            <Link to= {{ pathname: `/update-employee/${emp_Id}`}} style={{ textDecoration: 'none',color:'black'}} >
-                                                <span className='Edit_span'> Edit </span> 
+                                    <tr>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Employee Id</th>
+                                        <th>Age</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                            
+                                    <>
+                                    {/* Change i name. Use body , header in table */}
+                                        { empDetails.map((i,y)=>
+                                            {
+                                                    return <>
+                                                        <ViewComponent 
+                                                        firstName={i.firstName} 
+                                                        lastName={i.lastName} 
+                                                        empid={i.empid} 
+                                                        age={i.age}/>
+                                                    </>
+                                                    
+                                            })
+                                        }
+                                        
 
-                                            </Link>
-                                        </div>
-
-                                    </td>
-
-                                    <td>
-                                        <div className="Delete_div" onClick={deleteEmployee}>
-                                            Delete
-                                        </div>
-                                    </td> */}
-
-
+                                    </>
                                 </>
-                            </>
-                        : null
+                            : null
 
-                        }
-                 </table>
-            </>
-       
-         }
+                            }
+                    </table>
+                </>
+        
+            }
         
        
-    </div>
+        </div>
     );
 };
 

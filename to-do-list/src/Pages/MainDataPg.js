@@ -4,44 +4,19 @@ import CallForm from './Unused-Pages/CallForm';
 import Form from '../Components/Form';
 
 
-export const ColorContext=React.createContext();
-
 function MainDataPg(props) {
 
-    // export const EmpDetails=React.createContext({
-
-    // })
-
-    // const [color,setcolor]=useState('yellow')
-    // const [color2,setcolor2]=useState('GREEN')
-    // {console.log("Color",color,color2);}
-
+   
     return (
         <div>
-               
-               {/* <ColorContext.Provider value= {{color,setcolor,color2,setcolor2}}> */}
+              
                   <Link to={{pathname:`/add-employee`}}>
                     <button className='Add-employee-button' >Add Employee</button>
-                    {/* <Form  value= {{color,setcolor,color2,setcolor2}}/>     */}
                   </Link>
-                  {/* <Form /> */}
-               {/* </ColorContext.Provider> */}
 
-                <Link to={{pathname:`/view-employees`}}>
+                 <Link to={{pathname:`/view-employees`}}>
                     <button className='Add-employee-button' >View Employee</button>
-                    {/* <Form />     */}
                   </Link>
-
-              
-            {/* <ColorContext.Provider value= {{color,setcolor,color2,setcolor2}}>
-                  <Link to={{pathname:`/view-employees`}}>
-                    <button className='Add-employee-button' onClick={1}>View Employee</button>
-                    <Form />    
-                  </Link>
-            </ColorContext.Provider> */}
-            {/* <Link to={{pathname:`/view-employees`}}> */}
-                {/* <button className='Add-employee-button' onClick={1}>View Employee</button> */}
-            {/* </Link> */}
               
         </div>
     );

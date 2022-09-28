@@ -3,7 +3,6 @@ import './Form.css'
 import { useParams, useLocation } from 'react-router';
 
 import { useNavigate } from 'react-router-dom';
-// import {ColorContext} from './App'
 import { ColorContext } from './Context'
 import InputComponent from './InputComponent';
 //only 1 func
@@ -12,24 +11,16 @@ import InputComponent from './InputComponent';
 //new compo for input fie;d
 function Form() {
 
-    // {parentHandler,intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee'}
-
-    // const {f_name,setf_name}=useContext(ColorContext);
-    // const {l_name,setl_name}=useContext(ColorContext);
-    // const {emp_Id,setemp_Id}=useContext(ColorContext);
-    // const {emp_Age,setemp_Age}=useContext(ColorContext);
     const {empDetails,setempDetails}=useContext(ColorContext);
     const {allId,setallId}=useContext(ColorContext);
 
-    // console.log("COLORS FORM",color);
-    // console.log("Props value",parentHandler("yo bro"));
+ 
     const navigate = useNavigate();
     const {id}=useParams();
 
     const { query } = useLocation();
    
     console.log("FORM",id);
-    // let intial_Firstname='', initial_Lastname='', initial_empid='',initial_age='',button_value='Add Employee';
 
     const [finalEmp,setfinalEmp]=useState({})
 
@@ -52,8 +43,8 @@ function Form() {
                 // console.log("Val",i.firstName);
             })
             console.log("ID IS",idOfEmp);
-            //  button_value='Update Details'
-             setButton_value('Update Details')
+            
+            setButton_value('Update Details')
             setfinalEmp(idOfEmp)
 
             setFirstName(idOfEmp.firstName);
@@ -61,11 +52,7 @@ function Form() {
             setEmpid(idOfEmp.empid);
             setAge(idOfEmp.age);
 
-            // intial_Firstname=idOfEmp.firstName;
-            // initial_Lastname=idOfEmp.lastName;
-            // initial_empid=idOfEmp.empid;
-            // initial_age=idOfEmp.age;
-
+            
            
 
             console.log("VALues",finalEmp,finalEmp.firstName);
@@ -108,23 +95,16 @@ function Form() {
 
     //     console.log("VALues",finalEmp.firstName);
     // }
-    // else
-    // {
-    //     console.log("VALUES",finalEmp);
-    // }
-
+   
   
     
     const [idpresent,setidpresent]=useState(false)
     const [message,setmessage]=useState('Id Already exists')
-    // let idpresent_Toggle=false;
-    // const [leftOverEmp,setleftOverEmp]=useState()
+  
 
     
     const submitForm=()=>
     {
-        // console.log(firstName,lastName,empid,age, localStorage);
-        //
         const empInfo=
         {
            firstName, 
@@ -132,29 +112,6 @@ function Form() {
             empid, 
             age
         }
-        // localStorage.setItem(empid,JSON.stringify({
-        //                                 "firstName":firstName, 
-        //                                 "lastName":lastName, 
-        //                                 "empid":empid, 
-        //                                 "age": age}))
-
-        // console.log("Props value",parentHandler(firstName,lastName,empid,age));
-        // setf_name(firstName);
-        // setl_name(lastName);
-        // setemp_Id(empid);
-        // setemp_Age(age);
-
-        // setf_name('');
-        // setl_name('');
-        // setemp_Id('');
-        // setemp_Age('age');
-
-        // setempDetails([...empDetails,empInfo])
-
-        // console.log(...empDetails);
-        // console.log("Here",button_value,button_value=='Update Details');
-
-        // setallId(prev =>new Set([...prev,empid]))
 
         if(idpresent)
         {
@@ -166,23 +123,18 @@ function Form() {
 
             if(button_Value=='Update Details')
             {
-                // setempDetails([...empDetails,empInfo)
                 let leftOverEmp=[]
                 const UpdatedEmp=empDetails.filter((i)=>
                 {
                     if(i.empid!=empid)
                     {
                         leftOverEmp.push(i)
-                        // setempDetails([...empDetails,i])
-                        console.log(i);
                         return i;
                     }
                 })
                 leftOverEmp.push(empInfo)
                 setempDetails(leftOverEmp)
-    
-                console.log("UPDATED EMP",leftOverEmp,empInfo);
-    
+        
                 navigate('/view-employees')
             }
                 
@@ -198,22 +150,17 @@ function Form() {
 
     const employeeIDFunc=(e)=>
     {
-       console.log("EE",e);
 
          const seeID_Used_Before=[...allId].filter((i)=>
         {
             if(i==e)
              { 
-                // setidpresent(true);
-                // idpresent_Toggle=true;
+               
                  console.log("BEFORE-ID",i);
                  setmessage("Id Already exists")
                  return "haha";
               }
-            //   else
-            //   {
-            //     setidpresent(false);
-            //   }
+           
         })
         
         if(seeID_Used_Before.length>0)
@@ -222,15 +169,9 @@ function Form() {
             setidpresent(false)
         
 
-        console.log("IDID",idpresent,seeID_Used_Before.length,typeof(seeID_Used_Before));
 
         if(button_Value!='Update Details')
             setEmpid(e);
-            // console.log("Hhehe");
-            // setEmpid(initial_empid)
-
-        // else
-        // setEmpid(e);
 
         
     }

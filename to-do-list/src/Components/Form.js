@@ -20,7 +20,6 @@ function Form() {
 
     const { query } = useLocation();
    
-    console.log("FORM",id);
 
     const [finalEmp,setfinalEmp]=useState({})
 
@@ -38,8 +37,10 @@ function Form() {
             const idOfEmp= empDetails.find((i,j)=>
             {
                 if(i.empid==id)
-                {console.log("Val",i,j);
-                return i;}
+                {
+                    console.log("Val",i,j);
+                     return i;
+                }
                 // console.log("Val",i.firstName);
             })
             console.log("ID IS",idOfEmp);
@@ -124,12 +125,12 @@ function Form() {
             if(button_Value=='Update Details')
             {
                 let leftOverEmp=[]
-                const UpdatedEmp=empDetails.filter((i)=>
+                const UpdatedEmp=empDetails.filter((employee)=>
                 {
-                    if(i.empid!=empid)
+                    if(employee.empid!=empid)
                     {
-                        leftOverEmp.push(i)
-                        return i;
+                        leftOverEmp.push(employee)
+                        return employee;
                     }
                 })
                 leftOverEmp.push(empInfo)
@@ -151,18 +152,19 @@ function Form() {
     const employeeIDFunc=(e)=>
     {
 
-         const seeID_Used_Before=[...allId].filter((i)=>
+         const seeID_Used_Before=[...allId].filter((employee_id)=>
         {
-            if(i==e)
+            if(employee_id==e)
              { 
                
-                 console.log("BEFORE-ID",i);
+                 console.log("BEFORE-ID",employee_id);
                  setmessage("Id Already exists")
-                 return "haha";
+                //  return "haha";
               }
            
         })
         
+        // console.log("Here",seeID_Used_Before);
         if(seeID_Used_Before.length>0)
             setidpresent(true);
         else
@@ -200,38 +202,27 @@ function Form() {
 
             <div className='input_Main_Container'>
                 
-                <div className='input_Container'>
-                    <span id='span_Element'> FirstName </span>  
-                    <InputComponent className_Prop='inputTag' value_Prop={firstName} onChange_Prop={e=>firstNameFunc(e)} placeholder='Enter First Name'/>
-
-                    {/* <input className='inputTag' type=""  value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='Enter First Name'/> */}
+                <div className='input_Container'> 
+                    <InputComponent className_Prop='inputTag' spanName="FirstName" value_Prop={firstName} onChange_Prop={e=>firstNameFunc(e)} placeholder='Enter First Name'/>
                 </div>
 
                 <div className='input_Container'>
-                    <span id='span_Element'> LastName </span>    
-                    <InputComponent className_Prop='inputTag' value_Prop={lastName} onChange_Prop={e=>lastNameFunc(e)} placeholder='Enter Last Name'/>
-                    {/* <input className='inputTag'type="" value={lastName} onChange={e=>lastNameFunc(e)} placeholder='Enter Last Name'/> */}
+                    <InputComponent className_Prop='inputTag' spanName="LastName" value_Prop={lastName} onChange_Prop={e=>lastNameFunc(e)} placeholder='Enter Last Name'/>
                 </div>
                         
                 <div className='input_Container'>
-                    <span id='span_Element' className='span-id-age'> Id </span>  
                   
                     {button_Value=='Update Details'
                         ? 
-                            <InputComponent className_Prop='inputTag'  disabled_Prop={true} value_Prop={empid} onChange_Prop={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
-                            //  <input className='inputTag' type="Number" disabled value={empid} onChange={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
+                            <InputComponent className_Prop='inputTag' spanName="Id" spanClassName="span-id-age" disabled_Prop={true} value_Prop={empid} onChange_Prop={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
                         :
-                         <InputComponent className_Prop='inputTag' type_Prop="Number" value_Prop={empid} onChange_Prop={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
-                            //  <input className='inputTag' type="Number" value={empid} onChange={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
+                           <InputComponent className_Prop='inputTag' spanName="Id" spanClassName="span-id-age" type_Prop="Number" value_Prop={empid} onChange_Prop={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/>
                          }
 
-                    {/* <input className='inputTag' type="Number" disabled value={empid} onChange={e=>employeeIDFunc(e.target.value)} placeholder='Enter Employee Id'/> */}
                 </div>  
 
                 <div className='input_Container'>
-                    <span id='span_Element' className='span-id-age'>Age</span>    
-                     <InputComponent className_Prop='inputTag' type_Prop="Number" value_Prop={age} onChange_Prop={e=>ageFunc(e)} placeholder='Enter Your age'/>
-                    {/* <input  className='inputTag' type="Number" value={age}  onChange={e=>ageFunc(e)} placeholder='Enter Your age'/> */}
+                     <InputComponent className_Prop='inputTag' spanName="Age" spanClassName="span-id-age" type_Prop="Number" value_Prop={age} onChange_Prop={e=>ageFunc(e)} placeholder='Enter Your age'/>
                 </div>     
 
                  <button className='button-add-update' onClick={submitForm}>{button_Value}</button>  

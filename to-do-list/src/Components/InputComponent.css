@@ -4,3 +4,15 @@
     width: 180px;
     /* border:1px solid red; */
 }
+
+#span_Element {
+    /* margin-left: 20px; */
+    /* text-align: center; */
+    color: rgb(0, 124, 0);
+    font-weight: 600;
+    font-size: large;
+}
+
+.span-id-age {
+    margin: auto;
+}

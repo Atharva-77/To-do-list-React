@@ -1,12 +1,12 @@
       //Arrys of objs, validation for id
-//hide logs, bank sapces, remove unused variables
+      //hide logs, bank sapces, remove unused variables
       //New create context
 
       //New components
       //New branch push
 //Color change
 //CSS best practise
-//Change css classname
+      //Change css classname
       // Add link to to-d-list
 
 //Pages & compo...

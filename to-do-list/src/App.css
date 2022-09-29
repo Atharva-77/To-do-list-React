@@ -1,9 +1,11 @@
 :root
 {
-    --red: red;
+    --red: #8b5cf6;
     --dark-green: green;
-    --light-lessOpacity-green: rgb(186, 253, 87,0.8);
-    --light-moreOpacity-green: rgb(175, 245, 71);
+    --light-lessOpacity-green: #74f5ff;
+    /* rgb(186, 253, 87,0.8); */
+    --light-moreOpacity-green:#64cfff;
+     /* rgb(175, 245, 71); */
 }
 .App {
   text-align: center;

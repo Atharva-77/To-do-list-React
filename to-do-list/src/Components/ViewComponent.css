@@ -29,7 +29,7 @@
 }
 
 .delete_Div {
-  color: var(--red);
+  color: red;
 }
 
 .delete_Div:hover {

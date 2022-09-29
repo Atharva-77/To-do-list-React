@@ -8,7 +8,8 @@
 #span_Element {
     /* margin-left: 20px; */
     /* text-align: center; */
-    color: rgb(0, 124, 0);
+    color:#3b82f6;
+    /* rgb(0, 124, 0); */
     font-weight: 600;
     font-size: large;
 }

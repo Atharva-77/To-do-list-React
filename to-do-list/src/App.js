@@ -1,14 +1,7 @@
-      //Arrys of objs, validation for id
-      //hide logs, bank sapces, remove unused variables
-      //New create context
+// This is a PR branch.
+// I have added comments to this file
 
-      //New components
-      //New branch push
-//Color change
-//CSS best practise
-      //Change css classname
-      // Add link to to-d-list
-
+      
 //Pages & compo...
 //git merge
 //git conflict
@@ -38,7 +31,6 @@ function App() {
        
            
         <ColorContext.Provider value= {{empDetails,setempDetails,allId,setallId}}>
-              {/* {f_name}{l_name} */}
               <BrowserRouter >
                         <Routes>
                    

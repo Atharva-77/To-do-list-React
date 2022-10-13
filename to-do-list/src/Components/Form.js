@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
-import { EmpContext } from "../services/context/EmpContext";
+import EmpContext from "../services/context/EmpContext";
 import InputComponent from "./InputComponent";
 import "./Form.css";
 
@@ -25,11 +25,9 @@ const Form = () => {
     if (id != undefined) {
       const idOfEmp = empDetails.find((i, j) => {
         if (i.empId == id) {
-          console.log("Val", i, j);
           return i;
         }
       });
-      console.log("ID IS", idOfEmp);
 
       setButtonValue("Update Details");
       setfinalEmp(idOfEmp);
@@ -37,8 +35,6 @@ const Form = () => {
       setLastName(idOfEmp.lastName);
       setEmpId(idOfEmp.empId);
       setAge(idOfEmp.age);
-
-      console.log("VALues", finalEmp, finalEmp.firstName);
     }
   }, [id]);
 
@@ -75,16 +71,13 @@ const Form = () => {
   };
 
   const employeeIDHandler = (e) => {
-    console.log("EMPID", e.target.value);
     const seeID_Used_Before = [...allId].filter((employee_id) => {
       if (employee_id == e.target.value) {
-        console.log("BEFORE-ID", employee_id);
         setMessage("Id Already exists");
         return 1;
       }
     });
 
-    console.log("Here", seeID_Used_Before);
     if (seeID_Used_Before.length > 0) setIdPresent(true);
     else setIdPresent(false);
 

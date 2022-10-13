@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { EmpContext } from "../services/context/EmpContext";
+import EmpContext from "../services/context/EmpContext";
 import "./ViewComponent.css";
 
 const ViewComponent = ({ firstName, lastName, empId, age }) => {

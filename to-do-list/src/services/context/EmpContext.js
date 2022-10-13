@@ -1,3 +1,4 @@
 import React from "react";
 
-export const EmpContext = React.createContext();
+const EmpContext = React.createContext();
+export default EmpContext;

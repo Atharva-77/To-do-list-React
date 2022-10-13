@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Form from "./Components/Form";
 import Dashboard from "./Pages/Dashboard";
 import ViewEmp from "./Pages/ViewEmp";
-import { EmpContext } from "./services/context/EmpContext";
+import EmpContext from "./services/context/EmpContext";
 import Heading from "./Components/Heading";
 import "./App.css";
 

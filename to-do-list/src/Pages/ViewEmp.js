@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ViewComponent from "../Components/ViewComponent";
-import { EmpContext } from "../services/context/EmpContext";
+import EmpContext from "../services/context/EmpContext";
 
 const ViewEmp = () => {
   const { empDetails, setEmpDetails } = useContext(EmpContext);

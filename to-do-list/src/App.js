@@ -21,12 +21,12 @@ const App = () => {
         value={{ empDetails, setEmpDetails, allId, setallId }}
       >
         <BrowserRouter>
+          <Heading />
           <Routes>
             <Route
               path="/update-employee/:id"
               element={
                 <>
-                  <Heading />
                   <Form />
                 </>
               }
@@ -35,7 +35,6 @@ const App = () => {
               path="/add-employee"
               element={
                 <>
-                  <Heading />
                   <Form />
                 </>
               }
@@ -45,7 +44,6 @@ const App = () => {
               path="/view-employees"
               element={
                 <>
-                  <Heading />
                   <ViewEmp />
                 </>
               }
@@ -55,7 +53,6 @@ const App = () => {
               path="/"
               element={
                 <>
-                  <Heading />
                   <Dashboard />
                 </>
               }

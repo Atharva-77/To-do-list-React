@@ -1,20 +1,12 @@
-/* .Heading_div
-heading_Div */
-
 .Heading_div {
     margin-top: 20px;
-    /* font-size: larger; */
     color: var(--red);
     font-weight: 600;
     text-decoration: none;
-    /* background-color: aqua; */
 }
 
-
 .Heading_div:hover {
-
     text-decoration: underline;
-
 }
 
 .Anchortag_heading {

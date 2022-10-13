@@ -110,7 +110,6 @@ function Form() {
       <div className="input_Main_Container">
         <div className="input_Container">
           <InputComponent
-            className_Prop="inputTag"
             spanName="FirstName"
             value_Prop={firstName}
             onChange_Prop={firstNameFunc}
@@ -120,7 +119,6 @@ function Form() {
 
         <div className="input_Container">
           <InputComponent
-            className_Prop="inputTag"
             spanName="LastName"
             value_Prop={lastName}
             onChange_Prop={lastNameFunc}
@@ -131,9 +129,7 @@ function Form() {
         <div className="input_Container">
           {button_Value == "Update Details" ? (
             <InputComponent
-              className_Prop="inputTag"
               spanName="Id"
-              spanClassName="span-id-age"
               disabled_Prop={true}
               value_Prop={empId}
               onChange_Prop={employeeIDFunc}
@@ -141,9 +137,7 @@ function Form() {
             />
           ) : (
             <InputComponent
-              className_Prop="inputTag"
               spanName="Id"
-              spanClassName="span-id-age"
               type_Prop="Number"
               value_Prop={empId}
               onChange_Prop={employeeIDFunc}
@@ -154,9 +148,7 @@ function Form() {
 
         <div className="input_Container">
           <InputComponent
-            className_Prop="inputTag"
             spanName="Age"
-            spanClassName="span-id-age"
             type_Prop="Number"
             value_Prop={age}
             onChange_Prop={ageFunc}

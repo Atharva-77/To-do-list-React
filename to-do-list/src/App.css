@@ -4,7 +4,6 @@
     --dark-green: green;
     --light-lessOpacity-blue:#8ff5ff;
     /* #8ff5ffed; */
-
     --light-moreOpacity-blue:#64cfff;
 }
 .App {
@@ -19,12 +18,9 @@
     text-decoration: none;
 }
 
-
 .heading_Div:hover
 {
-
     text-decoration: underline;
-   
 }
 
 .anchortag_heading

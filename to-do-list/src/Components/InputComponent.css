@@ -2,14 +2,10 @@
     margin-left: 18px;
     height: 20px;
     width: 180px;
-    /* border:1px solid red; */
 }
 
 #span_Element {
-    /* margin-left: 20px; */
-    /* text-align: center; */
     color:#3b82f6;
-    /* rgb(0, 124, 0); */
     font-weight: 600;
     font-size: large;
 }

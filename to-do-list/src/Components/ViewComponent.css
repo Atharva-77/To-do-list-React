@@ -1,23 +1,14 @@
 .link
 {
-   
   text-decoration: none ;
   color:black;
-        
 }
-
 
 .edit_Container {
-  /* text-decoration: none; */
   margin-top: 10px;
   margin-bottom: 10px;
-  /* color: black; */
 }
 
-/* .Edit_div:hover
-{
-    color: green;
-} */
 .edit_Span {
   color: rgb(45, 176, 45);
   font-weight: 500;
@@ -41,6 +32,4 @@ th,
 td {
   padding: 5px;
   border: 1px gray solid;
-  /* border-left: 1px solid red; */
-  /* border-right: 1px solid blue ; */
 }

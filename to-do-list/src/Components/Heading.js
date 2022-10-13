@@ -1,16 +1,15 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import './Heading.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Heading.css";
+
 const Heading = () => {
-    return (
-        <>
-            <Link to="/" className='Anchortag_heading'>
-                    <h2 className='Heading_div'>
-                        To-Do-List
-                    </h2>
-             </Link>
-        </>
-    );
+  return (
+    <>
+      <Link to="/" className="Anchortag_heading">
+        <h2 className="Heading_div">To-Do-List</h2>
+      </Link>
+    </>
+  );
 };
 
 export default Heading;

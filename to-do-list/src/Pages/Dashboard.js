@@ -19,10 +19,3 @@ function Dashboard(props) {
 }
 
 export default Dashboard;
-
-//Take data from Parent Compo
-
-//This is parent compo
-//View Emp button here.
-//Add Emp button here. After making emp, redirect to Landing page.
-//Edit EMP is new pg.After editing redirect to view emp page

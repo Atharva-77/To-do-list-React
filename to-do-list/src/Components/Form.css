@@ -1,36 +1,28 @@
 .form_Div
 {
     margin-top: 10px;
-
     margin: auto;
     margin-top: 20px;
     width: 335px;
     border: 1px solid;
-   
 }
+
 .form_Title
 {
     margin-top: 20px;
-    /* margin-left: 53px; */
     margin-bottom: 10px;
     font-size: 25px;
     font-weight: 600;
     text-decoration: underline;
     color: #3b82f6;
-     /* rgb(8, 108, 8); */
 }
+
 .input_Main_Container
 {
-   
     display: inline-block;
     padding-bottom: 10px;
 }
 
-/* .input_Main_Container
-{
-    display: flex;
-    justify-content: space-between;
-} */
 .input_Container
 {
     display: flex;
@@ -43,14 +35,10 @@
     margin-left: 18px;
     height: 20px;
     width: 180px;
-    /* border:1px solid red; */
 }
 
 #span_Element{
-    /* margin-left: 20px; */
-    /* text-align: center; */
     color:#3b82f6;
-     /* rgb(0, 124, 0); */
     font-weight: 600;
     font-size: large;
 }
@@ -62,19 +50,15 @@
 
 .button-add-update
 {
-  
     padding: 5px;
     margin-bottom: 10px;
     background-color: var(--light-lessOpacity-blue);
     font-weight: 550;
-    /* font-size: medium; */
     border: 1px solid;
-
     width: 91%;
 }
 .button-add-update:hover
 {
     font-weight: 750;
     background-color: var( --light-moreOpacity-blue);
-    
 }

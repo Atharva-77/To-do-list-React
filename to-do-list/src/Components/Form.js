@@ -17,9 +17,9 @@ const Form = () => {
   const [lastName, setLastName] = useState("");
   const [empId, setEmpId] = useState("");
   const [age, setAge] = useState("");
-  const [button_Value, setButton_value] = useState("Add Employee");
-  const [idpresent, setidpresent] = useState(false);
-  const [message, setmessage] = useState("Id Already exists");
+  const [buttonValue, setButtonValue] = useState("Add Employee");
+  const [idPresent, setIdPresent] = useState(false);
+  const [message, setMessage] = useState("Id Already exists");
 
   useEffect(() => {
     if (id != undefined) {
@@ -31,7 +31,7 @@ const Form = () => {
       });
       console.log("ID IS", idOfEmp);
 
-      setButton_value("Update Details");
+      setButtonValue("Update Details");
       setfinalEmp(idOfEmp);
       setFirstName(idOfEmp.firstName);
       setLastName(idOfEmp.lastName);
@@ -50,12 +50,12 @@ const Form = () => {
       age,
     };
 
-    if (idpresent) {
-      setmessage("Id already present. Please enter Different Id");
+    if (idPresent) {
+      setMessage("Id already present. Please enter Different Id");
     } else {
       setallId(new Set([...allId, empId]));
 
-      if (button_Value == "Update Details") {
+      if (buttonValue == "Update Details") {
         let leftOverEmp = [];
         const UpdatedEmp = empDetails.filter((employee) => {
           if (employee.empId != empId) {
@@ -74,30 +74,30 @@ const Form = () => {
     }
   };
 
-  const employeeIDFunc = (e) => {
+  const employeeIDHandler = (e) => {
     console.log("EMPID", e.target.value);
     const seeID_Used_Before = [...allId].filter((employee_id) => {
       if (employee_id == e.target.value) {
         console.log("BEFORE-ID", employee_id);
-        setmessage("Id Already exists");
+        setMessage("Id Already exists");
         return 1;
       }
     });
 
     console.log("Here", seeID_Used_Before);
-    if (seeID_Used_Before.length > 0) setidpresent(true);
-    else setidpresent(false);
+    if (seeID_Used_Before.length > 0) setIdPresent(true);
+    else setIdPresent(false);
 
-    if (button_Value != "Update Details") setEmpId(e.target.value);
+    if (buttonValue != "Update Details") setEmpId(e.target.value);
   };
 
-  const firstNameFunc = (e) => {
+  const firstNameHandler = (e) => {
     setFirstName(e.target.value);
   };
-  const lastNameFunc = (e) => {
+  const lastNameHandler = (e) => {
     setLastName(e.target.value);
   };
-  const ageFunc = (e) => {
+  const ageHandler = (e) => {
     setAge(e.target.value);
   };
 
@@ -105,14 +105,14 @@ const Form = () => {
     <div className="formDiv">
       <div className="formTitle">Employee Form</div>
 
-      {idpresent && <span>{message}</span>}
+      {idPresent && <span>{message}</span>}
 
       <div className="inputMainContainer">
         <div className="inputContainer">
           <InputComponent
             spanName="FirstName"
             value_Prop={firstName}
-            onChange_Prop={firstNameFunc}
+            onChange_Prop={firstNameHandler}
             placeholder="Enter First Name"
           />
         </div>
@@ -121,18 +121,18 @@ const Form = () => {
           <InputComponent
             spanName="LastName"
             value_Prop={lastName}
-            onChange_Prop={lastNameFunc}
+            onChange_Prop={lastNameHandler}
             placeholder="Enter Last Name"
           />
         </div>
 
         <div className="inputContainer">
-          {button_Value == "Update Details" ? (
+          {buttonValue == "Update Details" ? (
             <InputComponent
               spanName="Id"
               disabled_Prop={true}
               value_Prop={empId}
-              onChange_Prop={employeeIDFunc}
+              onChange_Prop={employeeIDHandler}
               placeholder="Enter Employee Id"
             />
           ) : (
@@ -140,7 +140,7 @@ const Form = () => {
               spanName="Id"
               type_Prop="Number"
               value_Prop={empId}
-              onChange_Prop={employeeIDFunc}
+              onChange_Prop={employeeIDHandler}
               placeholder="Enter Employee Id"
             />
           )}
@@ -151,13 +151,13 @@ const Form = () => {
             spanName="Age"
             type_Prop="Number"
             value_Prop={age}
-            onChange_Prop={ageFunc}
+            onChange_Prop={ageHandler}
             placeholder="Enter Your age"
           />
         </div>
 
         <button className="buttonAddUpdate" onClick={submitForm}>
-          {button_Value}
+          {buttonValue}
         </button>
       </div>
     </div>

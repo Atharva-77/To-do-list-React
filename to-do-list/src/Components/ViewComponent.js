@@ -24,15 +24,15 @@ const ViewComponent = ({ firstName, lastName, empId, age }) => {
       <td>{age}</td>
 
       <td>
-        <div className="edit_Container">
+        <div className="editContainer">
           <Link to={{ pathname: `/update-employee/${empId}` }} className="link">
-            <span className="edit_Span"> Edit </span>
+            <span className="editSpan"> Edit </span>
           </Link>
         </div>
       </td>
 
       <td>
-        <div className="delete_Div" onClick={() => deleteEmployee(empId)}>
+        <div className="deleteDiv" onClick={() => deleteEmployee(empId)}>
           Delete
         </div>
       </td>

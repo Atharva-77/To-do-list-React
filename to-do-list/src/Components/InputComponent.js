@@ -1,18 +1,17 @@
 import React from "react";
 import "./InputComponent.css";
 
-function InputComponent({
+const InputComponent = ({
   spanName,
   disabled_Prop = false,
   type_Prop,
   value_Prop,
   onChange_Prop,
   placeholder,
-}) {
-  // console.log("INP", value_Prop);
+}) => {
   return (
     <>
-      <span id="span_Element" className="span-id-age">
+      <span id="spanElement" className="span-id-age">
         {" "}
         {spanName}{" "}
       </span>
@@ -36,6 +35,6 @@ function InputComponent({
       )}
     </>
   );
-}
+};
 
 export default InputComponent;

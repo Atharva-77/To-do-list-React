@@ -5,8 +5,8 @@ import "./Heading.css";
 const Heading = () => {
   return (
     <>
-      <Link to="/" className="Anchortag_heading">
-        <h2 className="Heading_div">To-Do-List</h2>
+      <Link to="/" className="anchorTagHeading">
+        <h2 className="headingDiv">To-Do-List</h2>
       </Link>
     </>
   );

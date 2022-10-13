@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-// import {ColorContext} from './App'
 import ViewComponent from "../Components/ViewComponent";
 import { EmpContext } from "../services/context/EmpContext";
 
 const ViewEmp = () => {
   const { empDetails, setEmpDetails } = useContext(EmpContext);
-  // const { allId, setallId } = useContext(EmpContext);
 
   return (
     <div className="ViewEmp">

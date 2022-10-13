@@ -26,7 +26,7 @@
     font-weight: 500;
 }
 
-.Edit_delete_div
+.Edit_deleteDiv
 {
     margin-left: 20px;
 }
@@ -51,24 +51,24 @@
 {
     color: green;
 } */
-.Edit_span  
+.editSpan  
 {
     color: rgb(45, 176, 45);
     font-weight: 500;
 }
 
-.Edit_span:hover
+.editSpan:hover
 {
     color: var(--dark-green);
     text-decoration: underline;
 }
 
-.Delete_div
+.deleteDiv
 {
     color: var(--red);
 }
 
-.Delete_div:hover
+.deleteDiv:hover
 {
    text-decoration: underline;
     cursor: pointer;

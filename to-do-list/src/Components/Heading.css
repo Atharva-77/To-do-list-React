@@ -1,14 +1,14 @@
-.Heading_div {
+.headingDiv {
     margin-top: 20px;
     color: var(--red);
     font-weight: 600;
     text-decoration: none;
 }
 
-.Heading_div:hover {
+.headingDiv:hover {
     text-decoration: underline;
 }
 
-.Anchortag_heading {
+.anchorTagHeading {
     text-decoration: none;
 }

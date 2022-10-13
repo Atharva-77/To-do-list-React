@@ -1,45 +1,43 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './TableContent.css'
-import Form from '../../Components/Form';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./TableContent.css";
+import Form from "../../Components/Form";
 
-function TableContent({firstName,lastName,empid,age}) {
+function TableContent({ firstName, lastName, empid, age }) {
+  const deleteEmployee = () => {
+    console.log("Deleted clicked", empid);
+    localStorage.removeItem(empid);
+    window.location.reload(false);
+  };
+  return (
+    // <div className='1TableContent'>
 
+    <>
+      <tr>
+        <td>{firstName}</td>
+        <td>{lastName}</td>
+        <td>{empid}</td>
+        <td>{age}</td>
 
-    const deleteEmployee=()=>
-    {
-        console.log("Deleted clicked",empid);
-        localStorage.removeItem(empid)
-        window.location.reload(false);
-    }
-    return (
-        // <div className='1TableContent'>
+        <td>
+          <div className="Edit_div2">
+            <Link
+              to={{ pathname: `/form/${empid}` }}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <span className="editSpan"> Edit </span>
+            </Link>
+          </div>
+        </td>
 
-           <>
-                <tr>
-                        <td>{firstName}</td>
-                        <td>{lastName}</td>
-                        <td>{empid}</td>
-                        <td>{age}</td>
-
-                        <td>
-                            <div className='Edit_div2'>
-                                <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
-                                    <span className='Edit_span'> Edit </span> 
-                                </Link>
-
-                            </div>
-                        </td>
-
-                        <td>
-                            <div className="Delete_div" onClick={deleteEmployee}>
-                                Delete
-                            </div>
-                        </td>
-                        
-                </tr>
-          </>   
-    );
+        <td>
+          <div className="deleteDiv" onClick={deleteEmployee}>
+            Delete
+          </div>
+        </td>
+      </tr>
+    </>
+  );
 }
 
 export default TableContent;
@@ -55,29 +53,29 @@ export default TableContent;
 //      <div className='Table-headings'>LastName</div>
 //      <div>{lastName}</div>
 //  </div>
- 
+
 //  <div>
 //      <div className='Table-headings'>Employee Id</div>
 //      <div>{empid}</div>
 //  </div>
- 
+
 //  <div>
 //      <div className='Table-headings'>Age</div>
 //      <div>{age}</div>
 //  </div>
 // </div>
 
-// <div className='Edit_delete_div'>
+// <div className='Edit_deleteDiv'>
 
 // <div className='Edit_div'>
 //  <Link to= {{ pathname: `/form/${empid}`}} style={{ textDecoration: 'none',color:'black'}} >
-//       <span className='Edit_span'> Edit </span>
-      
+//       <span className='editSpan'> Edit </span>
+
 //  </Link>
 
 // </div>
 
-// <div className="Delete_div" onClick={deleteEmployee}>
+// <div className="deleteDiv" onClick={deleteEmployee}>
 //  Delete
 // </div>
 

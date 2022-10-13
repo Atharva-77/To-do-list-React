@@ -5,7 +5,7 @@ import { EmpContext } from "../services/context/EmpContext";
 import InputComponent from "./InputComponent";
 import "./Form.css";
 
-function Form() {
+const Form = () => {
   const navigate = useNavigate();
   const { query } = useLocation();
 
@@ -102,13 +102,13 @@ function Form() {
   };
 
   return (
-    <div className="form_Div">
-      <div className="form_Title">Employee Form</div>
+    <div className="formDiv">
+      <div className="formTitle">Employee Form</div>
 
       {idpresent && <span>{message}</span>}
 
-      <div className="input_Main_Container">
-        <div className="input_Container">
+      <div className="inputMainContainer">
+        <div className="inputContainer">
           <InputComponent
             spanName="FirstName"
             value_Prop={firstName}
@@ -117,7 +117,7 @@ function Form() {
           />
         </div>
 
-        <div className="input_Container">
+        <div className="inputContainer">
           <InputComponent
             spanName="LastName"
             value_Prop={lastName}
@@ -126,7 +126,7 @@ function Form() {
           />
         </div>
 
-        <div className="input_Container">
+        <div className="inputContainer">
           {button_Value == "Update Details" ? (
             <InputComponent
               spanName="Id"
@@ -146,7 +146,7 @@ function Form() {
           )}
         </div>
 
-        <div className="input_Container">
+        <div className="inputContainer">
           <InputComponent
             spanName="Age"
             type_Prop="Number"
@@ -156,12 +156,12 @@ function Form() {
           />
         </div>
 
-        <button className="button-add-update" onClick={submitForm}>
+        <button className="buttonAddUpdate" onClick={submitForm}>
           {button_Value}
         </button>
       </div>
     </div>
   );
-}
+};
 
 export default Form;

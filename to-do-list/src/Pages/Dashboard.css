@@ -1,4 +1,4 @@
-.Add-employee-button {
+.AddEmployeeButton {
     padding: 5px;
     margin-right: 20px;
     background-color: var(--light-lessOpacity-blue);
@@ -6,7 +6,7 @@
     border: 1px solid;
 }
 
-.Add-employee-button:hover {
+.AddEmployeeButton:hover {
     font-weight: 750;
     background-color: var(--light-moreOpacity-blue);
 }

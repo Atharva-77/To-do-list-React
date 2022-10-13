@@ -4,26 +4,26 @@
   color:black;
 }
 
-.edit_Container {
+.editContainer {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.edit_Span {
+.editSpan {
   color: rgb(45, 176, 45);
   font-weight: 500;
 }
 
-.edit_Span:hover {
+.editSpan:hover {
   color: var(--dark-green);
   text-decoration: underline;
 }
 
-.delete_Div {
+.deleteDiv {
   color: red;
 }
 
-.delete_Div:hover {
+.deleteDiv:hover {
   text-decoration: underline;
   cursor: pointer;
 }

@@ -9,21 +9,3 @@
 .App {
   text-align: center;
 }
-
-.heading_Div
-{
-    margin-top: 20px;
-    color: var(--red);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.heading_Div:hover
-{
-    text-decoration: underline;
-}
-
-.anchortag_heading
-{
- text-decoration: none;
-}

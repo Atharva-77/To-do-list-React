@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-// import MainPg from './Pages/Unused-Pages/MainPg';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Form from "./Components/Form";
 import Dashboard from "./Pages/Dashboard";
 import ViewEmp from "./Pages/ViewEmp";
-// import CallForm from './Pages/Unused-Pages/CallForm';
-// import { ColorContext } from "./Components/Context";
 import { EmpContext } from "./services/context/EmpContext";
 import Heading from "./Components/Heading";
 import "./App.css";

@@ -1,4 +1,4 @@
-.form_Div
+.formDiv
 {
     margin-top: 10px;
     margin: auto;
@@ -7,7 +7,7 @@
     border: 1px solid;
 }
 
-.form_Title
+.formTitle
 {
     margin-top: 20px;
     margin-bottom: 10px;
@@ -17,13 +17,13 @@
     color: #3b82f6;
 }
 
-.input_Main_Container
+.inputMainContainer
 {
     display: inline-block;
     padding-bottom: 10px;
 }
 
-.input_Container
+.inputContainer
 {
     display: flex;
     justify-content: space-between;
@@ -37,7 +37,7 @@
     width: 180px;
 }
 
-#span_Element{
+#spanElement{
     color:#3b82f6;
     font-weight: 600;
     font-size: large;
@@ -48,7 +48,7 @@
     margin: auto;
 }
 
-.button-add-update
+.buttonAddUpdate
 {
     padding: 5px;
     margin-bottom: 10px;
@@ -57,7 +57,7 @@
     border: 1px solid;
     width: 91%;
 }
-.button-add-update:hover
+.buttonAddUpdate:hover
 {
     font-weight: 750;
     background-color: var( --light-moreOpacity-blue);

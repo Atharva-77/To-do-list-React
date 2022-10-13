@@ -60,10 +60,10 @@ function MainPg(props) {
 
       {!renderChild && !renderChildEdit && (
         <>
-          <button className="Add-employee-button" onClick={renderFunc}>
+          <button className="AddEmployeeButton" onClick={renderFunc}>
             Add Employee
           </button>
-          {/* <button className='Add-employee-button' onClick={renderFunc}>View Employee</button> */}
+          {/* <button className='AddEmployeeButton' onClick={renderFunc}>View Employee</button> */}
           <table>
             {firstName == "" && <h2>No Employee</h2>}
             {/* <tr>
@@ -98,7 +98,7 @@ function MainPg(props) {
                       onClick={() => setrenderChildEdit(true)}
                     >
                       {/* <Link to= {{ pathname: `/form/${empid}+${firstName}+${lastName}+${age}`}} style={{ textDecoration: 'none',color:'black'}} > */}
-                      <span className="Edit_span"> Edit </span>
+                      <span className="editSpan"> Edit </span>
 
                       {/* { <Form intial_Firstname={firstName}  initial_Lastname={lastName}  initial_empid={empid} initial_age={age} button_value='Update Details'/> } */}
 
@@ -107,7 +107,7 @@ function MainPg(props) {
                   </td>
 
                   <td>
-                    <div className="Delete_div" onClick={deleteEmployee}>
+                    <div className="deleteDiv" onClick={deleteEmployee}>
                       Delete
                     </div>
                   </td>

@@ -6,7 +6,7 @@
 .Add-employee-button {
     padding: 5px;
     margin-right: 20px;
-    background-color: var(--light-lessOpacity-green);
+    background-color: var(--light-lessOpacity-blue);
     font-weight: 550;
     /* font-size: medium; */
     border: 1px solid;
@@ -14,7 +14,7 @@
 
 .Add-employee-button:hover {
     font-weight: 750;
-    background-color: var(--light-moreOpacity-green);
+    background-color: var(--light-moreOpacity-blue);
 }
 
 table {

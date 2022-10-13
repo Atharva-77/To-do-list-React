@@ -2,9 +2,10 @@
 {
     --red: #8b5cf6;
     --dark-green: green;
-    --light-lessOpacity-green:#8ff5ffed;
+    --light-lessOpacity-blue:#8ff5ff;
+    /* #8ff5ffed; */
 
-    --light-moreOpacity-green:#64cfff;
+    --light-moreOpacity-blue:#64cfff;
 }
 .App {
   text-align: center;

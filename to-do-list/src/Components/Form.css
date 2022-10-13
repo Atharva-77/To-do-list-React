@@ -1,9 +1,7 @@
 .form_Div
 {
-    /* display: flex; */
     margin-top: 10px;
-    /* margin-left: 100px; */
-    /* margin-right: 100px; */
+
     margin: auto;
     margin-top: 20px;
     width: 335px;
@@ -67,7 +65,7 @@
   
     padding: 5px;
     margin-bottom: 10px;
-    background-color: var(--light-lessOpacity-green);
+    background-color: var(--light-lessOpacity-blue);
     font-weight: 550;
     /* font-size: medium; */
     border: 1px solid;
@@ -77,6 +75,6 @@
 .button-add-update:hover
 {
     font-weight: 750;
-    background-color: var( --light-moreOpacity-green);
+    background-color: var( --light-moreOpacity-blue);
     
 }

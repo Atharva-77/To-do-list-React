@@ -1,54 +1,43 @@
-import React,{useContext} from 'react';
-import { Link } from 'react-router-dom';
-import { ColorContext } from './Context'
-import './ViewComponent.css'
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { EmpContext } from "../services/context/EmpContext";
+import "./ViewComponent.css";
 
-const ViewComponent = ({firstName,lastName,empid,age}) => {
+const ViewComponent = ({ firstName, lastName, empId, age }) => {
+  const { empDetails, setEmpDetails } = useContext(EmpContext);
+  const { allId, setallId } = useContext(EmpContext);
 
-    const {empDetails,setempDetails}=useContext(ColorContext);
-    const {allId,setallId}=useContext(ColorContext);
+  const deleteEmployee = () => {
+    const leftOverEmp = empDetails.filter((i) => {
+      if (i.empId != empId) return i;
+    });
 
-    const deleteEmployee=()=>
-    {
-      
-        const leftOverEmp= empDetails.filter((i)=>
-        {
-            if(i.empid!=empid)
-            return i;
-  
-        })
+    setEmpDetails(leftOverEmp);
+    setallId(new Set([...allId].filter((i) => i != empId)));
+  };
 
-        setempDetails(leftOverEmp)
-        setallId(new Set([...allId].filter(i=>i!=empid) ) );
+  return (
+    <tr>
+      <td>{firstName}</td>
+      <td>{lastName}</td>
+      <td>{empId}</td>
+      <td>{age}</td>
 
+      <td>
+        <div className="edit_Container">
+          <Link to={{ pathname: `/update-employee/${empId}` }} className="link">
+            <span className="edit_Span"> Edit </span>
+          </Link>
+        </div>
+      </td>
 
-    }
-
-    return (
-        <tr>
-            <td>{firstName}</td>
-            <td>{lastName}</td>
-            <td>{empid}</td>
-            <td>{age}</td>
-
-            <td>
-                                    
-                <div className='edit_Container'  >
-                    <Link to= {{ pathname: `/update-employee/${empid}`}} className="link" >
-                        <span className='edit_Span'> Edit </span> 
-                    </Link>
-                </div>
-
-            </td>
-
-            <td>
-                <div className="delete_Div" onClick={()=>deleteEmployee(empid)}>
-                    Delete
-                </div>
-                
-            </td>
-        </tr>
-    );
+      <td>
+        <div className="delete_Div" onClick={() => deleteEmployee(empId)}>
+          Delete
+        </div>
+      </td>
+    </tr>
+  );
 };
 
 export default ViewComponent;

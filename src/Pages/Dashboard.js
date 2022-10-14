@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CallForm from "./Unused-Pages/CallForm";
-import Form from "../Components/Form";
 import "../Pages/Dashboard.css";
 
-const Dashboard = (props) => {
+const Dashboard = () => {
   return (
     <div>
       <Link to={{ pathname: `/add-employee` }}>

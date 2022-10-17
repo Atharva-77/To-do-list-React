@@ -3,12 +3,14 @@ import "./InputComponent.css";
 
 const InputComponent = ({
   labelName,
+  name,
   disabled = false,
   type,
   value,
   onChange,
   placeholder,
 }) => {
+  // console.log("NAME INPUT", name);
   return (
     <>
       <span id="spanElement" className="span-id-age">
@@ -19,6 +21,7 @@ const InputComponent = ({
         className="inputTag"
         disabled={disabled}
         type={type}
+        name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}

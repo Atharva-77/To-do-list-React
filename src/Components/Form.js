@@ -12,7 +12,7 @@ const Form = () => {
   const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
     useContext(EmpContext);
   const { id } = useParams();
-  const [finalEmp, setfinalEmp] = useState({});
+  const [emp, setEmp] = useState({});
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [empId, setEmpId] = useState("");
@@ -22,23 +22,25 @@ const Form = () => {
   const [message, setMessage] = useState("Id Already exists");
 
   useEffect(() => {
-    if (id != undefined) {
-      const idOfEmp = empDetails.find((i, j) => {
-        if (i.empId == id) {
-          return i;
-        }
-      });
+    const employee = empDetails.find((employee) => {
+      if (employee.empId == id) {
+        return employee;
+      }
+    });
 
+    if (id != undefined && employee != undefined) {
+      console.log("2.IDOFEMP", employee, !typeof employee);
       setButtonValue("Update Details");
-      setfinalEmp(idOfEmp);
-      setFirstName(idOfEmp.firstName);
-      setLastName(idOfEmp.lastName);
-      setEmpId(idOfEmp.empId);
-      setAge(idOfEmp.age);
+      setEmp(employee);
+      setFirstName(employee.firstName);
+      setLastName(employee.lastName);
+      setEmpId(employee.empId);
+      setAge(employee.age);
     }
   }, [id]);
 
   const submitForm = () => {
+    console.log("SUBMIT", emp);
     const empInfo = {
       firstName,
       lastName,
@@ -60,12 +62,16 @@ const Form = () => {
           }
         });
         leftOverEmp.push(empInfo);
+
         setEmpDetails(leftOverEmp);
 
-        navigate("/view-employees");
+        // navigate("/view-employees");
       } else {
+        // console.log("EMPinfo", empInfo, "\nLEFTOVER");
+        // navigate("/view-employees");
+        setEmpDetails([...empDetails, emp]);
         navigate("/view-employees");
-        setEmpDetails([...empDetails, empInfo]);
+        // setEmpDetails([...empDetails, empInfo]);
       }
     }
   };
@@ -84,14 +90,63 @@ const Form = () => {
     if (buttonValue != "Update Details") setEmpId(e.target.value);
   };
 
+  const handler = (a, e) => {
+    console.log("HANDLER", a, e);
+  };
+
   const firstNameHandler = (e) => {
-    setFirstName(e.target.value);
+    setEmp({ firstName: e.target.value });
   };
   const lastNameHandler = (e) => {
-    setLastName(e.target.value);
+    setEmp({ ...emp, lastName: e.target.value });
+    // setLastName(e.target.value);
   };
   const ageHandler = (e) => {
-    setAge(e.target.value);
+    setEmp({ ...emp, age: e.target.value });
+    // setAge(e.target.value);
+  };
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+
+    console.log(data.get("Fname"), data.get("Lname"));
+
+    const empInfo = {
+      firstName: data.get("Fname"),
+      lastName: data.get("Lname"),
+      empId: data.get("age"),
+      age: data.get("age"),
+    };
+
+    setEmp(empInfo);
+    submitForm();
+    console.log(
+      "FORM-HANDLER",
+      e.target.value
+      // "2.",
+      // e.target.Fname,
+      // "3.",
+      // e.target.form.Fname
+    );
+    // console.log(
+    //   "FORM-HANDLER",
+    //   e,
+    //   e.target.Fname,
+    //   "2.",
+    //   e.target.form.Fname,
+    //   "=",
+    //   e.target.form.Fname.value
+    // );
+  };
+
+  const formChanges = (e) => {
+    // console.log("FORM-Chnaged", e.target.form.Fname);
+    console.log("FORM-2", e.target.form);
+    // e,
+    // e.target.value,)
+    // e.target.form.Fname.name);
+    // alert(`Hello 2`);
   };
 
   return (
@@ -100,59 +155,77 @@ const Form = () => {
 
       {idPresent && <span>{message}</span>}
 
-      <div className="inputMainContainer">
-        <div className="inputContainer">
-          <InputComponent
-            labelName="FirstName"
-            value={firstName}
+      <form onChange={formChanges} onSubmit={(e) => formHandler(e)}>
+        <div className="inputMainContainer">
+          {/* <input
+            className="inputTag"
+            type="text"
+            name="F1name"
+            value={emp.firstName}
             onChange={firstNameHandler}
-            placeholder="Enter First Name"
-          />
-        </div>
+            placeholder="{placeholder}"
+          /> */}
 
-        <div className="inputContainer">
-          <InputComponent
-            labelName="LastName"
-            value={lastName}
-            onChange={lastNameHandler}
-            placeholder="Enter Last Name"
-          />
-        </div>
-
-        <div className="inputContainer">
-          {buttonValue == "Update Details" ? (
+          <div className="inputContainer">
             <InputComponent
-              labelName="Id"
-              disabled={true}
-              value={empId}
-              onChange={employeeIDHandler}
-              placeholder="Enter Employee Id"
+              labelName="FirstName"
+              name="Fname"
+              value={emp.firstName}
+              onChange={firstNameHandler}
+              placeholder="Enter First Name"
             />
-          ) : (
+          </div>
+
+          <div className="inputContainer">
             <InputComponent
-              labelName="Id"
+              labelName="LastName"
+              name="Lname"
+              value={emp.lastName}
+              onChange={lastNameHandler}
+              placeholder="Enter Last Name"
+            />
+          </div>
+
+          <div className="inputContainer">
+            {buttonValue == "Update Details" ? (
+              <InputComponent
+                labelName="Id"
+                disabled={true}
+                value={empId}
+                onChange={employeeIDHandler}
+                placeholder="Enter Employee Id"
+              />
+            ) : (
+              <InputComponent
+                labelName="Id"
+                type="Number"
+                value={empId}
+                onChange={employeeIDHandler}
+                placeholder="Enter Employee Id"
+              />
+            )}
+          </div>
+
+          <div className="inputContainer">
+            <InputComponent
+              labelName="Age"
               type="Number"
-              value={empId}
-              onChange={employeeIDHandler}
-              placeholder="Enter Employee Id"
+              name="age"
+              value={emp.age}
+              onChange={ageHandler}
+              placeholder="Enter Your age"
             />
-          )}
-        </div>
+          </div>
 
-        <div className="inputContainer">
-          <InputComponent
-            labelName="Age"
-            type="Number"
-            value={age}
-            onChange={ageHandler}
-            placeholder="Enter Your age"
-          />
+          <button
+            type="submit"
+            className="buttonAddUpdate"
+            // onClick={submitForm}
+          >
+            {buttonValue}
+          </button>
         </div>
-
-        <button className="buttonAddUpdate" onClick={submitForm}>
-          {buttonValue}
-        </button>
-      </div>
+      </form>
     </div>
   );
 };

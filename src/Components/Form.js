@@ -40,13 +40,7 @@ const Form = () => {
   }, [id]);
 
   const submitForm = () => {
-    console.log("SUBMIT", emp);
-    const empInfo = {
-      firstName,
-      lastName,
-      empId,
-      age,
-    };
+    console.log("SUBMIT", emp, empId);
 
     if (idPresent) {
       setMessage("Id already present. Please enter Different Id");
@@ -61,11 +55,11 @@ const Form = () => {
             return employee;
           }
         });
-        leftOverEmp.push(empInfo);
+        leftOverEmp.push(emp);
 
+        // setEmpDetails(leftOverEmp);
         setEmpDetails(leftOverEmp);
-
-        // navigate("/view-employees");
+        navigate("/view-employees");
       } else {
         // console.log("EMPinfo", empInfo, "\nLEFTOVER");
         // navigate("/view-employees");
@@ -87,67 +81,64 @@ const Form = () => {
     if (seeID_Used_Before.length > 0) setIdPresent(true);
     else setIdPresent(false);
 
-    if (buttonValue != "Update Details") setEmpId(e.target.value);
-  };
-
-  const handler = (a, e) => {
-    console.log("HANDLER", a, e);
+    if (buttonValue != "Update Details")
+      setEmp({ ...emp, empId: e.target.value });
   };
 
   const firstNameHandler = (e) => {
-    setEmp({ firstName: e.target.value });
+    setEmp({ ...emp, firstName: e.target.value });
   };
   const lastNameHandler = (e) => {
     setEmp({ ...emp, lastName: e.target.value });
-    // setLastName(e.target.value);
   };
   const ageHandler = (e) => {
     setEmp({ ...emp, age: e.target.value });
-    // setAge(e.target.value);
   };
 
   const formHandler = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
+    // if (id) {
+    // }
+    // else {
+    const formData = new FormData(e.target);
+    let empInfo = {};
+    // let empInfo1 = { hi: "yo" };
+    // let keysArr = [];
+    // let valueArr = [];
 
-    console.log(data.get("Fname"), data.get("Lname"));
+    for (let [key, value] of formData.entries()) {
+      // keysArr.push(key);
+      // valueArr.push(value);
+      empInfo[key] = value;
+      // console.log("key-val", key, value, "Obj", empInfo1);
+    }
 
-    const empInfo = {
-      firstName: data.get("Fname"),
-      lastName: data.get("Lname"),
-      empId: data.get("age"),
-      age: data.get("age"),
-    };
+    // console.log(keysArr, ":", valueArr, "\n2.", keysArr[0]);
+    // for (let i = 0; i < keysArr.length; i++) {
+    // let a1 = keysArr[0];
+    // empInfo1[keysArr[0]] = valueArr[0];
+    // }
 
-    setEmp(empInfo);
-    submitForm();
-    console.log(
-      "FORM-HANDLER",
-      e.target.value
-      // "2.",
-      // e.target.Fname,
-      // "3.",
-      // e.target.form.Fname
-    );
-    // console.log(
-    //   "FORM-HANDLER",
-    //   e,
-    //   e.target.Fname,
-    //   "2.",
-    //   e.target.form.Fname,
-    //   "=",
-    //   e.target.form.Fname.value
-    // );
+    console.log(empInfo);
+    setEmpDetails([...empDetails, empInfo]);
+    navigate("/view-employees");
+    // }
+    // setEmpDetails(empInfo);
+    // const empInfo = {
+    //   firstName: data.get("firstName"),
+    //   lastName: data.get("lastName"),
+    //   empId: empId,
+    //   age: data.get("age"),
+    // };
+
+    // setEmp(empInfo);
+    // submitForm();
   };
 
-  const formChanges = (e) => {
-    // console.log("FORM-Chnaged", e.target.form.Fname);
-    console.log("FORM-2", e.target.form);
-    // e,
-    // e.target.value,)
-    // e.target.form.Fname.name);
-    // alert(`Hello 2`);
-  };
+  // const formChanges = (e) => {
+  //   // console.log("FORM-Chnaged", e.target.form.Fname);
+  //   console.log("FORM-2", e.target.form);
+  // };
 
   return (
     <div className="formDiv">
@@ -155,23 +146,14 @@ const Form = () => {
 
       {idPresent && <span>{message}</span>}
 
-      <form onChange={formChanges} onSubmit={(e) => formHandler(e)}>
+      <form onSubmit={formHandler}>
         <div className="inputMainContainer">
-          {/* <input
-            className="inputTag"
-            type="text"
-            name="F1name"
-            value={emp.firstName}
-            onChange={firstNameHandler}
-            placeholder="{placeholder}"
-          /> */}
-
           <div className="inputContainer">
             <InputComponent
               labelName="FirstName"
-              name="Fname"
+              name="firstName"
               value={emp.firstName}
-              onChange={firstNameHandler}
+              onChange={formHandler}
               placeholder="Enter First Name"
             />
           </div>
@@ -179,9 +161,9 @@ const Form = () => {
           <div className="inputContainer">
             <InputComponent
               labelName="LastName"
-              name="Lname"
+              name="lastName"
               value={emp.lastName}
-              onChange={lastNameHandler}
+              // onChange={lastNameHandler}
               placeholder="Enter Last Name"
             />
           </div>
@@ -191,16 +173,18 @@ const Form = () => {
               <InputComponent
                 labelName="Id"
                 disabled={true}
-                value={empId}
-                onChange={employeeIDHandler}
+                value={emp.empId}
+                name="empId"
+                // onChange={employeeIDHandler}
                 placeholder="Enter Employee Id"
               />
             ) : (
               <InputComponent
                 labelName="Id"
                 type="Number"
-                value={empId}
-                onChange={employeeIDHandler}
+                value={emp.empId}
+                name="empId"
+                // onChange={employeeIDHandler}
                 placeholder="Enter Employee Id"
               />
             )}
@@ -212,7 +196,7 @@ const Form = () => {
               type="Number"
               name="age"
               value={emp.age}
-              onChange={ageHandler}
+              // onChange={ageHandler}
               placeholder="Enter Your age"
             />
           </div>

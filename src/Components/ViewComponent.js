@@ -4,9 +4,8 @@ import EmpContext from "../services/context/EmpContext";
 import "./ViewComponent.css";
 
 const ViewComponent = ({ firstName, lastName, empId, age }) => {
-  const { empDetails, setEmpDetails } = useContext(EmpContext);
-  const { allEmpId, setAllEmpId } = useContext(EmpContext);
-
+  const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
+    useContext(EmpContext);
   const deleteEmployee = () => {
     const leftOverEmp = empDetails.filter((i) => {
       if (i.empId != empId) return i;

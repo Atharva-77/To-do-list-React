@@ -1,3 +1,3 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 
-export const ColorContext=React.createContext();
+export const ColorContext = React.createContext();

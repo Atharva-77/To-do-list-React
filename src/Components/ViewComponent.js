@@ -5,7 +5,7 @@ import "./ViewComponent.css";
 
 const ViewComponent = ({ firstName, lastName, empId, age }) => {
   const { empDetails, setEmpDetails } = useContext(EmpContext);
-  const { allId, setallId } = useContext(EmpContext);
+  const { allEmpId, setAllEmpId } = useContext(EmpContext);
 
   const deleteEmployee = () => {
     const leftOverEmp = empDetails.filter((i) => {
@@ -13,7 +13,7 @@ const ViewComponent = ({ firstName, lastName, empId, age }) => {
     });
 
     setEmpDetails(leftOverEmp);
-    setallId(new Set([...allId].filter((i) => i != empId)));
+    setAllEmpId(new Set([...allEmpId].filter((i) => i != empId)));
   };
 
   return (

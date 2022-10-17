@@ -2,20 +2,28 @@ import React from "react";
 import "./InputComponent.css";
 
 const InputComponent = ({
-  spanName,
-  disabled_Prop = false,
-  type_Prop,
-  value_Prop,
-  onChange_Prop,
+  labelName,
+  disabled = false,
+  type,
+  value,
+  onChange,
   placeholder,
 }) => {
   return (
     <>
       <span id="spanElement" className="span-id-age">
         {" "}
-        {spanName}{" "}
+        {labelName}{" "}
       </span>
-      {disabled_Prop == true ? (
+      <input
+        className="inputTag"
+        disabled={disabled}
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+      {/* {disabled_Prop ? (
         <input
           className="inputTag"
           disabled
@@ -32,7 +40,7 @@ const InputComponent = ({
           onChange={onChange_Prop}
           placeholder={placeholder}
         />
-      )}
+      )} */}
     </>
   );
 };

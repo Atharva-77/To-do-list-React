@@ -9,8 +9,8 @@ const Form = () => {
   const navigate = useNavigate();
   const { query } = useLocation();
 
-  const { empDetails, setEmpDetails } = useContext(EmpContext);
-  const { allId, setallId } = useContext(EmpContext);
+  const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
+    useContext(EmpContext);
   const { id } = useParams();
   const [finalEmp, setfinalEmp] = useState({});
   const [firstName, setFirstName] = useState("");
@@ -49,7 +49,7 @@ const Form = () => {
     if (idPresent) {
       setMessage("Id already present. Please enter Different Id");
     } else {
-      setallId(new Set([...allId, empId]));
+      setAllEmpId(new Set([...allEmpId, empId]));
 
       if (buttonValue == "Update Details") {
         let leftOverEmp = [];
@@ -71,7 +71,7 @@ const Form = () => {
   };
 
   const employeeIDHandler = (e) => {
-    const seeID_Used_Before = [...allId].filter((employee_id) => {
+    const seeID_Used_Before = [...allEmpId].filter((employee_id) => {
       if (employee_id == e.target.value) {
         setMessage("Id Already exists");
         return 1;
@@ -103,18 +103,18 @@ const Form = () => {
       <div className="inputMainContainer">
         <div className="inputContainer">
           <InputComponent
-            spanName="FirstName"
-            value_Prop={firstName}
-            onChange_Prop={firstNameHandler}
+            labelName="FirstName"
+            value={firstName}
+            onChange={firstNameHandler}
             placeholder="Enter First Name"
           />
         </div>
 
         <div className="inputContainer">
           <InputComponent
-            spanName="LastName"
-            value_Prop={lastName}
-            onChange_Prop={lastNameHandler}
+            labelName="LastName"
+            value={lastName}
+            onChange={lastNameHandler}
             placeholder="Enter Last Name"
           />
         </div>
@@ -122,18 +122,18 @@ const Form = () => {
         <div className="inputContainer">
           {buttonValue == "Update Details" ? (
             <InputComponent
-              spanName="Id"
-              disabled_Prop={true}
-              value_Prop={empId}
-              onChange_Prop={employeeIDHandler}
+              labelName="Id"
+              disabled={true}
+              value={empId}
+              onChange={employeeIDHandler}
               placeholder="Enter Employee Id"
             />
           ) : (
             <InputComponent
-              spanName="Id"
-              type_Prop="Number"
-              value_Prop={empId}
-              onChange_Prop={employeeIDHandler}
+              labelName="Id"
+              type="Number"
+              value={empId}
+              onChange={employeeIDHandler}
               placeholder="Enter Employee Id"
             />
           )}
@@ -141,10 +141,10 @@ const Form = () => {
 
         <div className="inputContainer">
           <InputComponent
-            spanName="Age"
-            type_Prop="Number"
-            value_Prop={age}
-            onChange_Prop={ageHandler}
+            labelName="Age"
+            type="Number"
+            value={age}
+            onChange={ageHandler}
             placeholder="Enter Your age"
           />
         </div>

@@ -1,63 +1,55 @@
-.formDiv
-{
-    margin: auto;
-    margin-top: 20px;
-    width: 335px;
-    border: 1px solid;
+.formDiv {
+  margin: auto;
+  margin-top: 20px;
+  width: 335px;
+  border: 1px solid;
 }
 
-.formTitle
-{
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 25px;
-    font-weight: 600;
-    text-decoration: underline;
-    color: #3b82f6;
+.formTitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--blue);
 }
 
-.inputMainContainer
-{
-    display: inline-block;
-    padding-bottom: 10px;
+.inputMainContainer {
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.inputContainer
-{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }
 
-.inputTag
-{
-    margin-left: 18px;
-    height: 20px;
-    width: 180px;
+.inputTag {
+  margin-left: 18px;
+  height: 20px;
+  width: 180px;
 }
 
-#spanElement{
-    color:#3b82f6;
-    font-weight: 600;
-    font-size: large;
+#spanElement {
+  color: var(--blue);
+  font-weight: 600;
+  font-size: large;
 }
 
-.span-id-age
-{
-    margin: auto;
+.span-id-age {
+  margin: auto;
 }
 
-.buttonAddUpdate
-{
-    padding: 5px;
-    margin-bottom: 10px;
-    background-color: var(--light-lessOpacity-blue);
-    font-weight: 550;
-    border: 1px solid;
-    width: 91%;
+.buttonAddUpdate {
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: var(--light-lessOpacity-blue);
+  font-weight: 550;
+  border: 1px solid;
+  width: 91%;
 }
-.buttonAddUpdate:hover
-{
-    font-weight: 750;
-    background-color: var( --light-moreOpacity-blue);
+.buttonAddUpdate:hover {
+  font-weight: 750;
+  background-color: var(--light-moreOpacity-blue);
 }

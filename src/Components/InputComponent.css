@@ -1,15 +1,15 @@
 .inputTag {
-    margin-left: 18px;
-    height: 20px;
-    width: 180px;
+  margin-left: 18px;
+  height: 20px;
+  width: 180px;
 }
 
 #spanElement {
-    color:#3b82f6;
-    font-weight: 600;
-    font-size: large;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: large;
 }
 
 .span-id-age {
-    margin: auto;
+  margin: auto;
 }

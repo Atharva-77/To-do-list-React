@@ -1,7 +1,6 @@
-.link
-{
-  text-decoration: none ;
-  color:black;
+.link {
+  text-decoration: none;
+  color: var(--black);
 }
 
 .editContainer {
@@ -10,7 +9,7 @@
 }
 
 .editSpan {
-  color: rgb(45, 176, 45);
+  color: var(--light-green);
   font-weight: 500;
 }
 
@@ -20,7 +19,7 @@
 }
 
 .deleteDiv {
-  color: red;
+  color: var(--red);
 }
 
 .deleteDiv:hover {

@@ -1,12 +1,12 @@
 table {
-    border-collapse: collapse;
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 th,
 td {
-    padding: 5px;
-    border: 1px gray solid;
+  padding: 5px;
+  border: 1px gray solid;
 }

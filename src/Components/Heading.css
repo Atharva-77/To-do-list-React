@@ -1,14 +1,14 @@
 .headingDiv {
-    margin-top: 20px;
-    color: var(--red);
-    font-weight: 600;
-    text-decoration: none;
+  margin-top: 20px;
+  color: var(--purple);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .headingDiv:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .anchorTagHeading {
-    text-decoration: none;
+  text-decoration: none;
 }

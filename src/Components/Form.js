@@ -7,7 +7,6 @@ import "./Form.css";
 
 const Form = () => {
   const navigate = useNavigate();
-
   const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
     useContext(EmpContext);
   const { id } = useParams();
@@ -23,7 +22,6 @@ const Form = () => {
     });
 
     if (id != undefined && employee != undefined) {
-      console.log("2.IDOFEMP", employee, !typeof employee);
       setButtonValue("Update Details");
       setEmp(employee);
     }
@@ -33,7 +31,6 @@ const Form = () => {
     e.preventDefault();
 
     if (id) {
-      console.log("ID Present");
       let leftOverEmp = [];
       const UpdatedEmp = empDetails.filter((employee) => {
         if (employee.empId != emp.empId) {
@@ -44,10 +41,8 @@ const Form = () => {
       leftOverEmp.push(emp);
 
       setEmpDetails(leftOverEmp);
-      console.log("UPDATED", leftOverEmp, "\nEMP", emp, "LEFTOVER");
       navigate("/view-employees");
     } else {
-      console.log("No ID", e.target.empId.value, "Q");
       setAllEmpId(new Set([...allEmpId, e.target.empId.value]));
 
       setEmpDetails([...empDetails, emp]);
@@ -60,19 +55,15 @@ const Form = () => {
 
     if (e.target.name == "empId") {
       setIdPresentBefore(false);
-      console.log("hi", [...allEmpId]);
-
       [...allEmpId].find((employeeId) => {
         console.log("148.", employeeId, e.target.value);
         if (employeeId == e.target.value) {
-          // setMessage("Id Already exists");
           setIdPresentBefore(true);
           return employeeId;
         }
       });
     }
     setEmp({ ...emp, [e.target.name]: e.target.value });
-    console.log("FORM-2", e.target.name, e.target.value, emp);
   };
 
   return (
@@ -135,22 +126,13 @@ const Form = () => {
               placeholder="Enter Your age"
             />
           </div>
-          {/* {console.log("223", Object.keys(emp).length)} */}
+
           {idPresentBefore || Object.keys(emp).length < 4 ? (
-            <button
-              disabled
-              type="submit"
-              className="buttonAddUpdate"
-              // onClick={submitForm}
-            >
+            <button disabled type="submit" className="buttonAddUpdate">
               {buttonValue}
             </button>
           ) : (
-            <button
-              type="submit"
-              className="buttonAddUpdate"
-              // onClick={submitForm}
-            >
+            <button type="submit" className="buttonAddUpdate">
               {buttonValue}
             </button>
           )}

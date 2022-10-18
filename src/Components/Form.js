@@ -11,7 +11,6 @@ const Form = () => {
     useContext(EmpContext);
   const { id } = useParams();
   const [emp, setEmp] = useState({});
-  const [buttonValue, setButtonValue] = useState("Add Employee");
   const [idPresentBefore, setIdPresentBefore] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ const Form = () => {
     });
 
     if (id != undefined && employee != undefined) {
-      setButtonValue("Update Details");
       setEmp(employee);
     }
   }, [id]);
@@ -129,12 +127,20 @@ const Form = () => {
 
           {idPresentBefore || Object.keys(emp).length < 4 ? (
             <button disabled type="submit" className="buttonAddUpdate">
-              {buttonValue}
+              Add Employee
             </button>
           ) : (
-            <button type="submit" className="buttonAddUpdate">
-              {buttonValue}
-            </button>
+            <>
+              {id ? (
+                <button type="submit" className="buttonAddUpdate">
+                  Update Details
+                </button>
+              ) : (
+                <button type="submit" className="buttonAddUpdate">
+                  Add Employee
+                </button>
+              )}
+            </>
           )}
         </div>
       </form>

@@ -30,68 +30,8 @@ const Form = () => {
       console.log("2.IDOFEMP", employee, !typeof employee);
       setButtonValue("Update Details");
       setEmp(employee);
-      // setFirstName(employee.firstName);
-      // setLastName(employee.lastName);
-      // setEmpId(employee.empId);
-      // setAge(employee.age);
     }
   }, [id]);
-
-  const submitForm = () => {
-    console.log("SUBMIT", emp, empId);
-
-    if (idPresentBefore) {
-      setMessage("Id already present. Please enter Different Id");
-    } else {
-      setAllEmpId(new Set([...allEmpId, empId]));
-
-      if (buttonValue == "Update Details") {
-        let leftOverEmp = [];
-        const UpdatedEmp = empDetails.filter((employee) => {
-          if (employee.empId != empId) {
-            leftOverEmp.push(employee);
-            return employee;
-          }
-        });
-        leftOverEmp.push(emp);
-
-        // setEmpDetails(leftOverEmp);
-        setEmpDetails(leftOverEmp);
-        navigate("/view-employees");
-      } else {
-        // console.log("EMPinfo", empInfo, "\nLEFTOVER");
-        // navigate("/view-employees");
-        setEmpDetails([...empDetails, emp]);
-        navigate("/view-employees");
-        // setEmpDetails([...empDetails, empInfo]);
-      }
-    }
-  };
-
-  const employeeIDHandler = (e) => {
-    const seeID_Used_Before = [...allEmpId].filter((employee_id) => {
-      if (employee_id == e.target.value) {
-        setMessage("Id Already exists");
-        return 1;
-      }
-    });
-
-    if (seeID_Used_Before.length > 0) setIdPresentBefore(true);
-    else setIdPresentBefore(false);
-
-    if (buttonValue != "Update Details")
-      setEmp({ ...emp, empId: e.target.value });
-  };
-
-  const firstNameHandler = (e) => {
-    setEmp({ ...emp, firstName: e.target.value });
-  };
-  const lastNameHandler = (e) => {
-    setEmp({ ...emp, lastName: e.target.value });
-  };
-  const ageHandler = (e) => {
-    setEmp({ ...emp, age: e.target.value });
-  };
 
   const formHandler = (e) => {
     e.preventDefault();

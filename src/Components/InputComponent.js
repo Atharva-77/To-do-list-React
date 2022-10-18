@@ -25,24 +25,6 @@ const InputComponent = ({
         onChange={onChange}
         placeholder={placeholder}
       />
-      {/* {disabled_Prop ? (
-        <input
-          className="inputTag"
-          disabled
-          type={type_Prop}
-          value={value_Prop}
-          onChange={onChange_Prop}
-          placeholder={placeholder}
-        />
-      ) : (
-        <input
-          className="inputTag"
-          type={type_Prop}
-          value={value_Prop}
-          onChange={onChange_Prop}
-          placeholder={placeholder}
-        />
-      )} */}
     </>
   );
 };

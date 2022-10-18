@@ -18,7 +18,7 @@ const Form = () => {
   const [empId, setEmpId] = useState("");
   const [age, setAge] = useState("");
   const [buttonValue, setButtonValue] = useState("Add Employee");
-  const [idPresent, setIdPresent] = useState(false);
+  const [idPresentBefore, setIdPresentBefore] = useState(false);
   const [message, setMessage] = useState("Id Already exists");
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Form = () => {
   const submitForm = () => {
     console.log("SUBMIT", emp, empId);
 
-    if (idPresent) {
+    if (idPresentBefore) {
       setMessage("Id already present. Please enter Different Id");
     } else {
       setAllEmpId(new Set([...allEmpId, empId]));
@@ -79,8 +79,8 @@ const Form = () => {
       }
     });
 
-    if (seeID_Used_Before.length > 0) setIdPresent(true);
-    else setIdPresent(false);
+    if (seeID_Used_Before.length > 0) setIdPresentBefore(true);
+    else setIdPresentBefore(false);
 
     if (buttonValue != "Update Details")
       setEmp({ ...emp, empId: e.target.value });
@@ -105,10 +105,27 @@ const Form = () => {
 
     {
       alert(`heloji`);
-      if (id) console.log("ID Present");
-      else {
+      if (id) {
+        console.log("ID Present");
+        let leftOverEmp = [];
+        const UpdatedEmp = empDetails.filter((employee) => {
+          if (employee.empId != empId) {
+            leftOverEmp.push(employee);
+            return employee;
+          }
+        });
+        leftOverEmp.push(emp);
+
+        // setEmpDetails(leftOverEmp);
+        setEmpDetails(leftOverEmp);
+        console.log("UPDATED", leftOverEmp, "\nEMP", emp, "LEFTOVER");
+        navigate("/view-employees");
+      } else {
         console.log("No ID", e.target.empId.value, "Q");
         setAllEmpId(new Set([...allEmpId, e.target.empId.value]));
+
+        setEmpDetails([...empDetails, emp]);
+        navigate("/view-employees");
       }
 
       // const formData = new FormData(e.target);
@@ -121,8 +138,6 @@ const Form = () => {
 
       // console.log(empInfo);
       // setEmpDetails([...empDetails, empInfo]);
-      setEmpDetails([...empDetails, emp]);
-      navigate("/view-employees");
     }
 
     // submitForm();
@@ -134,28 +149,29 @@ const Form = () => {
     // e.target.name;
     // a[e.target.name] = e.target.value;
     if (e.target.name == "empId") {
-      setIdPresent(false);
+      setIdPresentBefore(false);
       console.log("hi", [...allEmpId]);
 
       // const seeIDUsedBefore =
       [...allEmpId].find((employeeId) => {
         console.log("148.", employeeId, e.target.value);
         if (employeeId == e.target.value) {
-          setMessage("Id Already exists");
-          setIdPresent(true);
+          // setMessage("Id Already exists");
+          setIdPresentBefore(true);
           return employeeId;
         }
       });
       // console.log("SEEID", seeIDUsedBefore, seeIDUsedBefore != undefined);
 
-      // if (seeIDUsedBefore != undefined) setIdPresent(true);
-      // else setIdPresent(false);
+      // if (seeIDUsedBefore != undefined) setIdPresentBefore(true);
+      // else setIdPresentBefore(false);
 
-      if (buttonValue != "Update Details")
-        setEmp({ ...emp, [e.target.name]: e.target.value });
-    } else {
-      setEmp({ ...emp, [e.target.name]: e.target.value });
+      // if (buttonValue != "Update Details")
+      // setEmp({ ...emp, [e.target.name]: e.target.value });
     }
+    // else {
+    setEmp({ ...emp, [e.target.name]: e.target.value });
+    // }
 
     console.log("FORM-2", e.target.name, e.target.value, emp);
   };
@@ -164,7 +180,7 @@ const Form = () => {
     <div className="formDiv">
       <div className="formTitle">Employee Form</div>
 
-      {idPresent && <span>{message}</span>}
+      {idPresentBefore && <span>Id Already exists</span>}
 
       <form onSubmit={formHandler}>
         <div className="inputMainContainer">
@@ -189,7 +205,7 @@ const Form = () => {
           </div>
 
           <div className="inputContainer">
-            {buttonValue == "Update Details" ? (
+            {id ? (
               <InputComponent
                 labelName="Id"
                 disabled={true}
@@ -221,7 +237,7 @@ const Form = () => {
             />
           </div>
           {/* {console.log("223", Object.keys(emp).length)} */}
-          {idPresent ? (
+          {idPresentBefore || Object.keys(emp).length < 4 ? (
             <button
               disabled
               type="submit"

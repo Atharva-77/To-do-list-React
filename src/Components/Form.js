@@ -27,6 +27,7 @@ const Form = () => {
         return employee;
       }
     });
+    // console.log("30:-", id, !id);
 
     if (id != undefined && employee != undefined) {
       console.log("2.IDOFEMP", employee, !typeof employee);
@@ -98,47 +99,66 @@ const Form = () => {
   const formHandler = (e) => {
     e.preventDefault();
     // if (id) {
+    //   console.log("hhh", e.target.value);
     // }
-    // else {
-    const formData = new FormData(e.target);
-    let empInfo = {};
-    // let empInfo1 = { hi: "yo" };
-    // let keysArr = [];
-    // let valueArr = [];
+    // const formData = new FormData(e.target);
 
-    for (let [key, value] of formData.entries()) {
-      // keysArr.push(key);
-      // valueArr.push(value);
-      empInfo[key] = value;
-      // console.log("key-val", key, value, "Obj", empInfo1);
+    {
+      alert(`heloji`);
+      if (id) console.log("ID Present");
+      else {
+        console.log("No ID", e.target.empId.value, "Q");
+        setAllEmpId(new Set([...allEmpId, e.target.empId.value]));
+      }
+
+      // const formData = new FormData(e.target);
+      // let empInfo = {};
+
+      // for (let [key, value] of formData.entries()) {
+      //   empInfo[key] = value;
+      //   // console.log("key-val", key, value, "Obj", empInfo1);
+      // }
+
+      // console.log(empInfo);
+      // setEmpDetails([...empDetails, empInfo]);
+      setEmpDetails([...empDetails, emp]);
+      navigate("/view-employees");
     }
 
-    // console.log(keysArr, ":", valueArr, "\n2.", keysArr[0]);
-    // for (let i = 0; i < keysArr.length; i++) {
-    // let a1 = keysArr[0];
-    // empInfo1[keysArr[0]] = valueArr[0];
-    // }
-
-    console.log(empInfo);
-    setEmpDetails([...empDetails, empInfo]);
-    navigate("/view-employees");
-    // }
-    // setEmpDetails(empInfo);
-    // const empInfo = {
-    //   firstName: data.get("firstName"),
-    //   lastName: data.get("lastName"),
-    //   empId: empId,
-    //   age: data.get("age"),
-    // };
-
-    // setEmp(empInfo);
     // submitForm();
   };
 
-  // const formChanges = (e) => {
-  //   // console.log("FORM-Chnaged", e.target.form.Fname);
-  //   console.log("FORM-2", e.target.form);
-  // };
+  const formChanges = (e) => {
+    // console.log("FORM-Chnaged", e.target.form.Fname);
+    let a = {};
+    // e.target.name;
+    // a[e.target.name] = e.target.value;
+    if (e.target.name == "empId") {
+      setIdPresent(false);
+      console.log("hi", [...allEmpId]);
+
+      // const seeIDUsedBefore =
+      [...allEmpId].find((employeeId) => {
+        console.log("148.", employeeId, e.target.value);
+        if (employeeId == e.target.value) {
+          setMessage("Id Already exists");
+          setIdPresent(true);
+          return employeeId;
+        }
+      });
+      // console.log("SEEID", seeIDUsedBefore, seeIDUsedBefore != undefined);
+
+      // if (seeIDUsedBefore != undefined) setIdPresent(true);
+      // else setIdPresent(false);
+
+      if (buttonValue != "Update Details")
+        setEmp({ ...emp, [e.target.name]: e.target.value });
+    } else {
+      setEmp({ ...emp, [e.target.name]: e.target.value });
+    }
+
+    console.log("FORM-2", e.target.name, e.target.value, emp);
+  };
 
   return (
     <div className="formDiv">
@@ -153,7 +173,7 @@ const Form = () => {
               labelName="FirstName"
               name="firstName"
               value={emp.firstName}
-              onChange={formHandler}
+              onChange={formChanges}
               placeholder="Enter First Name"
             />
           </div>
@@ -163,7 +183,7 @@ const Form = () => {
               labelName="LastName"
               name="lastName"
               value={emp.lastName}
-              // onChange={lastNameHandler}
+              onChange={formChanges}
               placeholder="Enter Last Name"
             />
           </div>
@@ -175,7 +195,7 @@ const Form = () => {
                 disabled={true}
                 value={emp.empId}
                 name="empId"
-                // onChange={employeeIDHandler}
+                onChange={formChanges}
                 placeholder="Enter Employee Id"
               />
             ) : (
@@ -184,7 +204,7 @@ const Form = () => {
                 type="Number"
                 value={emp.empId}
                 name="empId"
-                // onChange={employeeIDHandler}
+                onChange={formChanges}
                 placeholder="Enter Employee Id"
               />
             )}
@@ -196,18 +216,29 @@ const Form = () => {
               type="Number"
               name="age"
               value={emp.age}
-              // onChange={ageHandler}
+              onChange={formChanges}
               placeholder="Enter Your age"
             />
           </div>
-
-          <button
-            type="submit"
-            className="buttonAddUpdate"
-            // onClick={submitForm}
-          >
-            {buttonValue}
-          </button>
+          {/* {console.log("223", Object.keys(emp).length)} */}
+          {idPresent ? (
+            <button
+              disabled
+              type="submit"
+              className="buttonAddUpdate"
+              // onClick={submitForm}
+            >
+              {buttonValue}
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="buttonAddUpdate"
+              // onClick={submitForm}
+            >
+              {buttonValue}
+            </button>
+          )}
         </div>
       </form>
     </div>

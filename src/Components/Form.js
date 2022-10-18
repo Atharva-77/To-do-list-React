@@ -7,16 +7,13 @@ import "./Form.css";
 
 const Form = () => {
   const navigate = useNavigate();
-  const { query } = useLocation();
 
   const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
     useContext(EmpContext);
   const { id } = useParams();
   const [emp, setEmp] = useState({});
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [empId, setEmpId] = useState("");
-  const [age, setAge] = useState("");
+
   const [buttonValue, setButtonValue] = useState("Add Employee");
   const [idPresentBefore, setIdPresentBefore] = useState(false);
   const [message, setMessage] = useState("Id Already exists");
@@ -33,10 +30,10 @@ const Form = () => {
       console.log("2.IDOFEMP", employee, !typeof employee);
       setButtonValue("Update Details");
       setEmp(employee);
-      setFirstName(employee.firstName);
-      setLastName(employee.lastName);
-      setEmpId(employee.empId);
-      setAge(employee.age);
+      // setFirstName(employee.firstName);
+      // setLastName(employee.lastName);
+      // setEmpId(employee.empId);
+      // setAge(employee.age);
     }
   }, [id]);
 
@@ -109,7 +106,7 @@ const Form = () => {
         console.log("ID Present");
         let leftOverEmp = [];
         const UpdatedEmp = empDetails.filter((employee) => {
-          if (employee.empId != empId) {
+          if (employee.empId != emp.empId) {
             leftOverEmp.push(employee);
             return employee;
           }

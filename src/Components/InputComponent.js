@@ -10,7 +10,6 @@ const InputComponent = ({
   onChange,
   placeholder,
 }) => {
-  // console.log("NAME INPUT", name);
   return (
     <>
       <span id="spanElement" className="span-id-age">

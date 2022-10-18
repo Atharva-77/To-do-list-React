@@ -49,12 +49,10 @@ const Form = () => {
   };
 
   const formChanges = (e) => {
-    let a = {};
-
     if (e.target.name == "empId") {
       setIdPresentBefore(false);
+
       [...allEmpId].find((employeeId) => {
-        console.log("148.", employeeId, e.target.value);
         if (employeeId == e.target.value) {
           setIdPresentBefore(true);
           return employeeId;

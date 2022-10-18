@@ -5,7 +5,6 @@ import EmpContext from "../services/context/EmpContext";
 
 const ViewEmp = () => {
   const { empDetails, setEmpDetails } = useContext(EmpContext);
-  console.log("EMPDETAILS", empDetails);
 
   return (
     <div className="ViewEmp">

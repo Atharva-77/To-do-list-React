@@ -1,7 +1,7 @@
 import React from "react";
-import "./InputComponent.css";
+import "./Input.css";
 
-const InputComponent = ({
+const Input = ({
   labelName,
   name,
   disabled = false,
@@ -26,4 +26,4 @@ const InputComponent = ({
   );
 };
 
-export default InputComponent;
+export default Input;

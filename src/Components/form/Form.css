@@ -6,7 +6,7 @@
 .formDiv {
   margin-top: 20px;
   width: 335px;
-  border: 1px solid;
+  border: 1px solid var(--black);
 }
 
 .formTitle {
@@ -40,9 +40,10 @@
   margin-bottom: 10px;
   background-color: var(--light-blue);
   font-weight: 550;
-  border: 1px solid;
+  border: 1px solid var(--black);
   width: 91%;
 }
+
 .buttonAddUpdate:hover {
   font-weight: 750;
   background-color: var(--blue);

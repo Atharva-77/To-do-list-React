@@ -1,22 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
-import EmpContext from "../services/context/EmpContext";
-import InputComponent from "./InputComponent";
+import EmployeeContext from "../../services/context/EmployeeContext";
+import InputComponent from "../Input/Input";
 import "./Form.css";
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "../button/Button";
 
 const Form = () => {
   const navigate = useNavigate();
-  const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
-    useContext(EmpContext);
+  const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
   const { id } = useParams();
   const [employeeInformation, setEmployeeInformation] = useState({});
   const [idPresentBefore, setIdPresentBefore] = useState(false);
   const isFormFilled = Object.keys(employeeInformation).length;
 
   useEffect(() => {
-    const employee = empDetails.find((employee) => {
+    const employee = employeeDetails.find((employee) => {
       if (employee.empId === id) {
         return employee;
       }
@@ -27,31 +26,30 @@ const Form = () => {
     }
   }, [id]);
 
-  const formHandler = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     if (id) {
-      const UpdatedEmployee = empDetails.filter(
+      const UpdatedEmployee = employeeDetails.filter(
         (employee) => employee.empId !== employeeInformation.empId
       );
       UpdatedEmployee.push(employeeInformation);
 
-      setEmpDetails(UpdatedEmployee);
+      setEmployeeDetails(UpdatedEmployee);
       navigate("/view-employees");
     } else {
-      setAllEmpId(new Set([...allEmpId, e.target.empId.value]));
-
-      setEmpDetails([...empDetails, employeeInformation]);
+      setEmployeeDetails([...employeeDetails, employeeInformation]);
       navigate("/view-employees");
     }
   };
 
-  const formChanges = (e) => {
+  const onChange = (e) => {
     if (e.target.name === "empId") {
       setIdPresentBefore(false);
 
-      [...allEmpId].find((employeeId) => {
-        if (employeeId === e.target.value) {
+      employeeDetails.find((employeeId) => {
+        console.log("EMP-FIND", employeeId.empId);
+        if (employeeId.empId === e.target.value) {
           setIdPresentBefore(true);
           return employeeId;
         }
@@ -70,14 +68,14 @@ const Form = () => {
 
         {idPresentBefore && <span>Id Already exists</span>}
 
-        <form onSubmit={formHandler}>
+        <form onSubmit={onSubmit}>
           <div className="inputMainContainer">
             <div className="inputContainer">
               <InputComponent
                 labelName="FirstName"
                 name="firstName"
                 value={employeeInformation.firstName}
-                onChange={formChanges}
+                onChange={onChange}
                 placeholder="Enter First Name"
               />
             </div>
@@ -87,7 +85,7 @@ const Form = () => {
                 labelName="LastName"
                 name="lastName"
                 value={employeeInformation.lastName}
-                onChange={formChanges}
+                onChange={onChange}
                 placeholder="Enter Last Name"
               />
             </div>
@@ -99,7 +97,7 @@ const Form = () => {
                   disabled={true}
                   value={employeeInformation.empId}
                   name="empId"
-                  onChange={formChanges}
+                  onChange={onChange}
                   placeholder="Enter Employee Id"
                 />
               ) : (
@@ -108,7 +106,7 @@ const Form = () => {
                   type="Number"
                   value={employeeInformation.empId}
                   name="empId"
-                  onChange={formChanges}
+                  onChange={onChange}
                   placeholder="Enter Employee Id"
                 />
               )}
@@ -120,7 +118,7 @@ const Form = () => {
                 type="Number"
                 name="age"
                 value={employeeInformation.age}
-                onChange={formChanges}
+                onChange={onChange}
                 placeholder="Enter Your age"
               />
             </div>

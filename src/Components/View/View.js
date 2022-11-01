@@ -1,20 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import EmpContext from "../services/context/EmpContext";
-import "./ViewComponent.css";
+import EmployeeContext from "../../services/context/EmployeeContext";
+import "./View.css";
 
-const ViewComponent = ({ firstName, lastName, empId, age }) => {
-  const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
-    useContext(EmpContext);
+const View = ({ firstName, lastName, empId, age }) => {
+  const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
   const deleteEmployee = () => {
-    const leftOverEmployee = empDetails.filter(
+    const leftOverEmployee = employeeDetails.filter(
       (employee) => employee.empId !== empId
     );
 
-    setEmpDetails(leftOverEmployee);
-    setAllEmpId(
-      new Set([...allEmpId].filter((employeeId) => employeeId !== empId))
-    );
+    setEmployeeDetails(leftOverEmployee);
   };
 
   return (
@@ -41,4 +37,4 @@ const ViewComponent = ({ firstName, lastName, empId, age }) => {
   );
 };
 
-export default ViewComponent;
+export default View;

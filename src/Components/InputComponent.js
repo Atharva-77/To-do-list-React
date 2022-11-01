@@ -13,8 +13,7 @@ const InputComponent = ({
   return (
     <>
       <span id="spanElement" className="span-id-age">
-        {" "}
-        {labelName}{" "}
+        {labelName}
       </span>
       <input
         className="inputTag"

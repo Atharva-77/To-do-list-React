@@ -1,5 +1,10 @@
+.formDivContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .formDiv {
-  margin: auto;
+  /* margin: auto; */
   margin-top: 20px;
   width: 335px;
   border: 1px solid;
@@ -11,7 +16,7 @@
   font-size: 25px;
   font-weight: 600;
   text-decoration: underline;
-  color: var(--blue);
+  color: var(--dark-blue);
 }
 
 .inputMainContainer {
@@ -32,7 +37,7 @@
 }
 
 #spanElement {
-  color: var(--blue);
+  color: var(--dark-blue);
   font-weight: 600;
   font-size: large;
 }
@@ -44,12 +49,12 @@
 .buttonAddUpdate {
   padding: 5px;
   margin-bottom: 10px;
-  background-color: var(--light-lessOpacity-blue);
+  background-color: var(--light-blue);
   font-weight: 550;
   border: 1px solid;
   width: 91%;
 }
 .buttonAddUpdate:hover {
   font-weight: 750;
-  background-color: var(--light-moreOpacity-blue);
+  background-color: var(--blue);
 }

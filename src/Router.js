@@ -11,40 +11,12 @@ const Router = () => {
       <BrowserRouter>
         <Heading />
         <Routes>
-          <Route
-            path="/update-employee/:id"
-            element={
-              <>
-                <Form />
-              </>
-            }
-          />
-          <Route
-            path="/add-employee"
-            element={
-              <>
-                <Form />
-              </>
-            }
-          />
+          <Route path="/update-employee/:id" element={<Form />} />
+          <Route path="/add-employee" element={<Form />} />
 
-          <Route
-            path="/view-employees"
-            element={
-              <>
-                <ViewEmp />
-              </>
-            }
-          />
+          <Route path="/view-employees" element={<ViewEmp />} />
 
-          <Route
-            path="/"
-            element={
-              <>
-                <Dashboard />
-              </>
-            }
-          />
+          <Route path="/" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

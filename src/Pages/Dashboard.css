@@ -1,14 +1,14 @@
 .AddEmployeeButton {
   padding: 5px;
   margin-right: 20px;
-  background-color: var(--light-lessOpacity-blue);
+  background-color: var(--light-blue);
   font-weight: 550;
   border: 1px solid;
 }
 
 .AddEmployeeButton:hover {
   font-weight: 750;
-  background-color: var(--light-moreOpacity-blue);
+  background-color: var(--blue);
 }
 
 table {

@@ -11,8 +11,6 @@ const ViewEmp = () => {
       {
         <>
           <table>
-            {empDetails == "" && <h2>No Employee</h2>}
-
             {empDetails != "" ? (
               <>
                 <thead>
@@ -32,6 +30,7 @@ const ViewEmp = () => {
                     return (
                       <>
                         <ViewComponent
+                          key={employee.empId}
                           firstName={employee.firstName}
                           lastName={employee.lastName}
                           empId={employee.empId}
@@ -42,7 +41,9 @@ const ViewEmp = () => {
                   })}
                 </tbody>
               </>
-            ) : null}
+            ) : (
+              <h2>No Employee</h2>
+            )}
           </table>
         </>
       }

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import EmpContext from "../services/context/EmpContext";
 import InputComponent from "./InputComponent";
 import "./Form.css";
+import ButtonComponent from "./ButtonComponent";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -30,16 +31,12 @@ const Form = () => {
     e.preventDefault();
 
     if (id) {
-      let leftOverEmployee = [];
-      const UpdatedEmp = empDetails.filter((employee) => {
-        if (employee.empId !== employeeInformation.empId) {
-          leftOverEmployee.push(employee);
-          return employee;
-        }
-      });
-      leftOverEmployee.push(employeeInformation);
+      const UpdatedEmployee = empDetails.filter(
+        (employee) => employee.empId !== employeeInformation.empId
+      );
+      UpdatedEmployee.push(employeeInformation);
 
-      setEmpDetails(leftOverEmployee);
+      setEmpDetails(UpdatedEmployee);
       navigate("/view-employees");
     } else {
       setAllEmpId(new Set([...allEmpId, e.target.empId.value]));
@@ -129,19 +126,13 @@ const Form = () => {
             </div>
 
             {idPresentBefore || isFormFilled < 4 ? (
-              <button disabled type="submit" className="buttonAddUpdate">
-                Add Employee
-              </button>
+              <ButtonComponent lableName="Add Employee" disabled={true} />
             ) : (
               <>
                 {id ? (
-                  <button type="submit" className="buttonAddUpdate">
-                    Update Details
-                  </button>
+                  <ButtonComponent lableName="Update Details" />
                 ) : (
-                  <button type="submit" className="buttonAddUpdate">
-                    Add Employee
-                  </button>
+                  <ButtonComponent lableName="Add Employee" />
                 )}
               </>
             )}

@@ -6,11 +6,11 @@ const Dashboard = () => {
   return (
     <div>
       <Link to={{ pathname: `/add-employee` }}>
-        <button className="AddEmployeeButton">Add Employee</button>
+        <button className="addEmployeeButton">Add Employee</button>
       </Link>
 
       <Link to={{ pathname: `/view-employees` }}>
-        <button className="AddEmployeeButton">View Employee</button>
+        <button className="addEmployeeButton">View Employee</button>
       </Link>
     </div>
   );

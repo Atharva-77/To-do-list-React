@@ -7,11 +7,11 @@ const ViewComponent = ({ firstName, lastName, empId, age }) => {
   const { empDetails, setEmpDetails, allEmpId, setAllEmpId } =
     useContext(EmpContext);
   const deleteEmployee = () => {
-    const leftOverEmp = empDetails.filter((employee) => {
-      if (employee.empId !== empId) return employee;
-    });
+    const leftOverEmployee = empDetails.filter(
+      (employee) => employee.empId !== empId
+    );
 
-    setEmpDetails(leftOverEmp);
+    setEmpDetails(leftOverEmployee);
     setAllEmpId(
       new Set([...allEmpId].filter((employeeId) => employeeId !== empId))
     );

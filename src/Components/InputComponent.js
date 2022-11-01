@@ -12,9 +12,7 @@ const InputComponent = ({
 }) => {
   return (
     <>
-      <span id="spanElement" className="span-id-age">
-        {labelName}
-      </span>
+      <span className="spanElement">{labelName}</span>
       <input
         className="inputTag"
         disabled={disabled}

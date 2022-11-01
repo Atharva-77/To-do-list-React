@@ -4,12 +4,9 @@
   width: 180px;
 }
 
-#spanElement {
+.spanElement {
   color: var(--dark-blue);
   font-weight: 600;
   font-size: large;
-}
-
-.span-id-age {
   margin: auto;
 }

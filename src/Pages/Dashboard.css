@@ -1,0 +1,19 @@
+.addEmployeeButton {
+  padding: 5px;
+  margin-right: 20px;
+  background-color: var(--light-blue);
+  font-weight: 550;
+  border: 1px solid;
+}
+
+.addEmployeeButton:hover {
+  font-weight: 750;
+  background-color: var(--blue);
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}

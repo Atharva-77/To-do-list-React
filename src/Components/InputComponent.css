@@ -1,0 +1,12 @@
+.inputTag {
+  margin-left: 18px;
+  height: 20px;
+  width: 180px;
+}
+
+.spanElement {
+  color: var(--dark-blue);
+  font-weight: 600;
+  font-size: large;
+  margin: auto;
+}

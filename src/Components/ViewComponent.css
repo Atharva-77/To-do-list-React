@@ -1,0 +1,34 @@
+.link {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.editContainer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.editSpan {
+  color: var(--light-green);
+  font-weight: 500;
+}
+
+.editSpan:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+
+.deleteDiv {
+  color: var(--red);
+}
+
+.deleteDiv:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+th,
+td {
+  padding: 5px;
+  border: 1px gray solid;
+}

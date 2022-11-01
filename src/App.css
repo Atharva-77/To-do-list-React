@@ -1,0 +1,13 @@
+:root {
+  --purple: rgb(139, 92, 246);
+  --dark-green: rgb(0, 128, 0);
+  --light-blue: rgb(143, 245, 255);
+  --blue: rgb(100, 207, 255);
+  --dark-blue: rgb(59, 130, 246);
+  --red: rgb(255, 0, 0);
+  --light-green: rgb(45, 176, 45);
+  --black: black;
+}
+.App {
+  text-align: center;
+}

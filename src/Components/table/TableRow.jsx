@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./tableRow.css";
 import PropTypes from 'prop-types';
+import LinkComponent from "../link/Link";
+import "./tableRow.css";
 
 const TableRow = ({ firstName, lastName, employeeId, age, deleteEmployee }) => {
 
@@ -14,12 +14,9 @@ const TableRow = ({ firstName, lastName, employeeId, age, deleteEmployee }) => {
 
       <td>
         <div className="editContainer">
-          <Link
-            to={{ pathname: `/update-employee/${employeeId}` }}
-            className="link"
-          >
+          <LinkComponent path={`/update-employee/${employeeId}`} className={"link"}>
             <span className="editSpan"> Edit </span>
-          </Link>
+          </LinkComponent>
         </div>
       </td>
 
@@ -35,8 +32,8 @@ const TableRow = ({ firstName, lastName, employeeId, age, deleteEmployee }) => {
 TableRow.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
-  employeeId: PropTypes.number,
-  age: PropTypes.number,
+  employeeId: PropTypes.string,
+  age: PropTypes.string,
   deleteEmployee:  PropTypes.func,
 };
 

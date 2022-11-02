@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
 import Input from "../input/Input";
@@ -18,20 +18,19 @@ const EmployeeForm = () => {
     const employee = employees.find(
       (employee) => employee.employeeId === id
     );
-    if (id !== undefined && employee !== undefined) {
+    if (id !== undefined ) {
       setEmployeeInformation(employee);
     }
   }, [id]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (id) {
-      const updatedEmployee = employees.filter(
-        (employee) => employee.employeeId !== employeeInformation.employeeId
-      );
-      updatedEmployee.push(employeeInformation);
 
-      setEmployees(updatedEmployee);
+    if (id) {
+      const existingEmployeeIndex = employees.findIndex(
+        (employee) => employee.employeeId === employeeInformation.employeeId
+      );
+      employees[existingEmployeeIndex] = employeeInformation;
       navigate("/view-employees");
     } else {
       setEmployees([...employees, employeeInformation]);

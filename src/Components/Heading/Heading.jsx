@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LinkComponent from "../link/Link";
 import "./heading.css";
 
 const Heading = () => {
   return (
-    <Link to="/" className="anchorTagHeading">
-      <h2 className="headingDiv">To-Do-List</h2>
-    </Link>
+    <LinkComponent path={'/'} className="link">
+       <h2 className="headingDiv">To-Do-List</h2>
+    </LinkComponent>
   );
 };
 

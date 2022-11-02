@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import Button from "../components/button/Button";
+import LinkComponent from "../components/link/Link";
 
 const Dashboard = () => {
   return (
     <div>
-      <Link to={{ pathname: `/add-employee` }}>
-        <Button label="Add Employee" className="buttonDashBoard"/>
-      </Link>
-
-      <Link to={{ pathname: `/view-employees` }}>
+      <LinkComponent path={`/add-employee`}>
+          <Button label="Add Employee" className="buttonDashBoard"/>
+      </LinkComponent>
+  
+      <LinkComponent path={`/view-employees`}>
         <Button label="View Employee" className="buttonDashBoard"/>
-      </Link>
+      </LinkComponent>
     </div>
   );
 };

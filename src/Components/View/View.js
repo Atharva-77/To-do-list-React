@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
 import "./View.css";
 
-const View = ({ firstName, lastName, empId, age }) => {
+const View = ({ firstName, lastName, employeeId, age }) => {
   const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
   const deleteEmployee = () => {
     const leftOverEmployee = employeeDetails.filter(
-      (employee) => employee.empId !== empId
+      (employee) => employee.employeeId !== employeeId
     );
 
     setEmployeeDetails(leftOverEmployee);
@@ -17,19 +17,22 @@ const View = ({ firstName, lastName, empId, age }) => {
     <tr>
       <td>{firstName}</td>
       <td>{lastName}</td>
-      <td>{empId}</td>
+      <td>{employeeId}</td>
       <td>{age}</td>
 
       <td>
         <div className="editContainer">
-          <Link to={{ pathname: `/update-employee/${empId}` }} className="link">
+          <Link
+            to={{ pathname: `/update-employee/${employeeId}` }}
+            className="link"
+          >
             <span className="editSpan"> Edit </span>
           </Link>
         </div>
       </td>
 
       <td>
-        <div className="deleteDiv" onClick={() => deleteEmployee(empId)}>
+        <div className="deleteDiv" onClick={() => deleteEmployee(employeeId)}>
           Delete
         </div>
       </td>

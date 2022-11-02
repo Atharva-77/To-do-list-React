@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
-import InputComponent from "../Input/Input";
+import Input from "../Input/Input";
+import Button from "../button/Button";
 import "./Form.css";
-import ButtonComponent from "../button/Button";
 
 const Form = () => {
   const navigate = useNavigate();
@@ -15,12 +15,9 @@ const Form = () => {
   const isFormFilled = Object.keys(employeeInformation).length;
 
   useEffect(() => {
-    const employee = employeeDetails.find((employee) => {
-      if (employee.empId === id) {
-        return employee;
-      }
-    });
-
+    const employee = employeeDetails.find(
+      (employee) => employee.employeeId === id
+    );
     if (id !== undefined && employee !== undefined) {
       setEmployeeInformation(employee);
     }
@@ -28,14 +25,13 @@ const Form = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     if (id) {
-      const UpdatedEmployee = employeeDetails.filter(
-        (employee) => employee.empId !== employeeInformation.empId
+      const updatedEmployee = employeeDetails.filter(
+        (employee) => employee.employeeId !== employeeInformation.employeeId
       );
-      UpdatedEmployee.push(employeeInformation);
+      updatedEmployee.push(employeeInformation);
 
-      setEmployeeDetails(UpdatedEmployee);
+      setEmployeeDetails(updatedEmployee);
       navigate("/view-employees");
     } else {
       setEmployeeDetails([...employeeDetails, employeeInformation]);
@@ -44,14 +40,12 @@ const Form = () => {
   };
 
   const onChange = (e) => {
-    if (e.target.name === "empId") {
+    if (e.target.name === "employeeId") {
       setIdPresentBefore(false);
 
-      employeeDetails.find((employeeId) => {
-        console.log("EMP-FIND", employeeId.empId);
-        if (employeeId.empId === e.target.value) {
+      employeeDetails.find((employee) => {
+        if (employee.employeeId === e.target.value) {
           setIdPresentBefore(true);
-          return employeeId;
         }
       });
     }
@@ -71,7 +65,7 @@ const Form = () => {
         <form onSubmit={onSubmit}>
           <div className="inputMainContainer">
             <div className="inputContainer">
-              <InputComponent
+              <Input
                 labelName="FirstName"
                 name="firstName"
                 value={employeeInformation.firstName}
@@ -81,7 +75,7 @@ const Form = () => {
             </div>
 
             <div className="inputContainer">
-              <InputComponent
+              <Input
                 labelName="LastName"
                 name="lastName"
                 value={employeeInformation.lastName}
@@ -92,20 +86,20 @@ const Form = () => {
 
             <div className="inputContainer">
               {id ? (
-                <InputComponent
+                <Input
                   labelName="Id"
                   disabled={true}
-                  value={employeeInformation.empId}
-                  name="empId"
+                  value={employeeInformation.employeeId}
+                  name="employeeId"
                   onChange={onChange}
                   placeholder="Enter Employee Id"
                 />
               ) : (
-                <InputComponent
+                <Input
                   labelName="Id"
                   type="Number"
-                  value={employeeInformation.empId}
-                  name="empId"
+                  value={employeeInformation.employeeId}
+                  name="employeeId"
                   onChange={onChange}
                   placeholder="Enter Employee Id"
                 />
@@ -113,7 +107,7 @@ const Form = () => {
             </div>
 
             <div className="inputContainer">
-              <InputComponent
+              <Input
                 labelName="Age"
                 type="Number"
                 name="age"
@@ -124,13 +118,13 @@ const Form = () => {
             </div>
 
             {idPresentBefore || isFormFilled < 4 ? (
-              <ButtonComponent lableName="Add Employee" disabled={true} />
+              <Button lableName="Add Employee" disabled={true} />
             ) : (
               <>
                 {id ? (
-                  <ButtonComponent lableName="Update Details" />
+                  <Button lableName="Update Details" />
                 ) : (
-                  <ButtonComponent lableName="Add Employee" />
+                  <Button lableName="Add Employee" />
                 )}
               </>
             )}

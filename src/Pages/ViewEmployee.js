@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import View from "../Components/View/View";
 import EmployeeContext from "../services/context/EmployeeContext";
 
@@ -22,18 +21,15 @@ const ViewEmployee = () => {
           </thead>
 
           <tbody>
-            {/* Change i name. Use body , header in table */}
             {employeeDetails.map((employee) => {
               return (
-                <>
-                  <View
-                    key={employee.empId}
-                    firstName={employee.firstName}
-                    lastName={employee.lastName}
-                    empId={employee.empId}
-                    age={employee.age}
-                  />
-                </>
+                <View
+                  key={employee.employeeId}
+                  firstName={employee.firstName}
+                  lastName={employee.lastName}
+                  employeeId={employee.employeeId}
+                  age={employee.age}
+                />
               );
             })}
           </tbody>

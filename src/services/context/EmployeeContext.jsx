@@ -1,4 +1,4 @@
-import React from "react";
+import {createContext} from "react";
 
-const EmployeeContext = React.createContext();
+const EmployeeContext =createContext([]);
 export default EmployeeContext;

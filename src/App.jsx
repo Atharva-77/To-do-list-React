@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import EmployeeContext from "./services/context/EmployeeContext";
 import Router from "./Router";
-import "./App.css";
+import "./app.css";
 
 const App = () => {
-  const [employeeDetails, setEmployeeDetails] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   return (
     <div className="App">
-      <EmployeeContext.Provider value={{ employeeDetails, setEmployeeDetails }}>
+      <EmployeeContext.Provider value={{ employees, setEmployees }}>
         <Router />
       </EmployeeContext.Provider>
     </div>

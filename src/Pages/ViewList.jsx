@@ -1,13 +1,21 @@
 import React, { useContext } from "react";
-import View from "../components/view/View";
+import TableRow from "../components/table/TableRow";
 import EmployeeContext from "../services/context/EmployeeContext";
+import "./viewList.css";
 
-const ViewEmployee = () => {
-  const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
+const ViewList = () => {
+  const { employees,setEmployees } = useContext(EmployeeContext);
+ 
+  const deleteEmployee = (employeeId) => {
+    const leftOverEmployee = employees.filter(
+      (employee) => employee.employeeId !== employeeId
+    );
 
+    setEmployees(leftOverEmployee);
+  };
   return (
     <table>
-      {employeeDetails != "" ? (
+      {employees.length!==0 ? (
         <>
           <thead>
             <tr>
@@ -21,17 +29,16 @@ const ViewEmployee = () => {
           </thead>
 
           <tbody>
-            {employeeDetails.map((employee) => {
-              return (
-                <View
+            {employees.map((employee) =>
+                <TableRow
                   key={employee.employeeId}
                   firstName={employee.firstName}
                   lastName={employee.lastName}
                   employeeId={employee.employeeId}
                   age={employee.age}
+                  deleteEmployee={deleteEmployee}
                 />
-              );
-            })}
+            )}
           </tbody>
         </>
       ) : (
@@ -41,4 +48,4 @@ const ViewEmployee = () => {
   );
 };
 
-export default ViewEmployee;
+export default ViewList;

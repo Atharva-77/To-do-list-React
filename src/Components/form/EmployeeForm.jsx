@@ -4,18 +4,18 @@ import { useNavigate } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
 import Input from "../input/Input";
 import Button from "../button/Button";
-import "./form.css";
+import "./employeeForm.css";
 
-const Form = () => {
-  const navigate = useNavigate();
-  const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
-  const { id } = useParams();
+const EmployeeForm = () => {
   const [employeeInformation, setEmployeeInformation] = useState({});
   const [idPresentBefore, setIdPresentBefore] = useState(false);
+  const { employees, setEmployees } = useContext(EmployeeContext);
+  const { id } = useParams();
+  const navigate = useNavigate();
   const isFormFilled = Object.keys(employeeInformation).length;
 
   useEffect(() => {
-    const employee = employeeDetails.find(
+    const employee = employees.find(
       (employee) => employee.employeeId === id
     );
     if (id !== undefined && employee !== undefined) {
@@ -26,15 +26,15 @@ const Form = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (id) {
-      const updatedEmployee = employeeDetails.filter(
+      const updatedEmployee = employees.filter(
         (employee) => employee.employeeId !== employeeInformation.employeeId
       );
       updatedEmployee.push(employeeInformation);
 
-      setEmployeeDetails(updatedEmployee);
+      setEmployees(updatedEmployee);
       navigate("/view-employees");
     } else {
-      setEmployeeDetails([...employeeDetails, employeeInformation]);
+      setEmployees([...employees, employeeInformation]);
       navigate("/view-employees");
     }
   };
@@ -43,7 +43,7 @@ const Form = () => {
     if (e.target.name === "employeeId") {
       setIdPresentBefore(false);
 
-      employeeDetails.find((employee) => {
+      employees.find((employee) => {
         if (employee.employeeId === e.target.value) {
           setIdPresentBefore(true);
         }
@@ -56,7 +56,7 @@ const Form = () => {
   };
 
   return (
-    <div className="formDivContainer">
+    <div className="formContainer">
       <div className="formDiv">
         <div className="formTitle">Employee Form</div>
 
@@ -66,7 +66,7 @@ const Form = () => {
           <div className="inputMainContainer">
             <div className="inputContainer">
               <Input
-                labelName="FirstName"
+                label="FirstName"
                 name="firstName"
                 value={employeeInformation.firstName}
                 onChange={onChange}
@@ -76,7 +76,7 @@ const Form = () => {
 
             <div className="inputContainer">
               <Input
-                labelName="LastName"
+                label="LastName"
                 name="lastName"
                 value={employeeInformation.lastName}
                 onChange={onChange}
@@ -85,30 +85,19 @@ const Form = () => {
             </div>
 
             <div className="inputContainer">
-              {id ? (
                 <Input
-                  labelName="Id"
-                  disabled={true}
+                  label="Id"
+                  disabled={id ? true : false}
                   value={employeeInformation.employeeId}
                   name="employeeId"
                   onChange={onChange}
                   placeholder="Enter Employee Id"
                 />
-              ) : (
-                <Input
-                  labelName="Id"
-                  type="Number"
-                  value={employeeInformation.employeeId}
-                  name="employeeId"
-                  onChange={onChange}
-                  placeholder="Enter Employee Id"
-                />
-              )}
             </div>
 
             <div className="inputContainer">
               <Input
-                labelName="Age"
+                label="Age"
                 type="Number"
                 name="age"
                 value={employeeInformation.age}
@@ -117,17 +106,7 @@ const Form = () => {
               />
             </div>
 
-            {idPresentBefore || isFormFilled < 4 ? (
-              <Button lableName="Add Employee" disabled={true} />
-            ) : (
-              <>
-                {id ? (
-                  <Button lableName="Update Details" />
-                ) : (
-                  <Button lableName="Add Employee" />
-                )}
-              </>
-            )}
+            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} />
           </div>
         </form>
       </div>
@@ -135,4 +114,5 @@ const Form = () => {
   );
 };
 
-export default Form;
+
+export default EmployeeForm;

@@ -1,17 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import EmployeeContext from "../../services/context/EmployeeContext";
-import "./view.css";
+import "./tableRow.css";
+import PropTypes from 'prop-types';
 
-const View = ({ firstName, lastName, employeeId, age }) => {
-  const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);
-  const deleteEmployee = () => {
-    const leftOverEmployee = employeeDetails.filter(
-      (employee) => employee.employeeId !== employeeId
-    );
-
-    setEmployeeDetails(leftOverEmployee);
-  };
+const TableRow = ({ firstName, lastName, employeeId, age, deleteEmployee }) => {
 
   return (
     <tr>
@@ -40,4 +32,12 @@ const View = ({ firstName, lastName, employeeId, age }) => {
   );
 };
 
-export default View;
+TableRow.propTypes = {
+  firstName: PropTypes.string,
+  lastName: PropTypes.string,
+  employeeId: PropTypes.number,
+  age: PropTypes.number,
+  deleteEmployee:  PropTypes.func,
+};
+
+export default TableRow;

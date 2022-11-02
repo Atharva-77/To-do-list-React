@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./input.css";
 
 const Input = ({
-  labelName,
+  label,
   name,
-  disabled = false,
+  disabled,
   type,
   value,
   onChange,
@@ -12,7 +13,7 @@ const Input = ({
 }) => {
   return (
     <>
-      <span className="spanElement">{labelName}</span>
+      <span className="spanElement">{label}</span>
       <input
         className="inputTag"
         disabled={disabled}
@@ -24,6 +25,20 @@ const Input = ({
       />
     </>
   );
+};
+
+Input.defaultProps = {
+  disabled: false
+}
+
+Input.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.node,
+  onChange:  PropTypes.func,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 export default Input;

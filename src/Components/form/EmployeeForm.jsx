@@ -41,8 +41,8 @@ const EmployeeForm = () => {
   const onChange = (e) => {
     if (e.target.name === "employeeId") {
       setIdPresentBefore(false);
-
-      employees.find((employee) => {
+      
+      employees.some((employee) => {
         if (employee.employeeId === e.target.value) {
           setIdPresentBefore(true);
         }

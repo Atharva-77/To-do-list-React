@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Form from "./Components/form/Form";
-import Dashboard from "./Pages/Dashboard";
-import ViewEmployee from "./Pages/ViewEmployee";
-import Heading from "./Components/Heading/Heading";
+import Form from "./components/form/Form.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import ViewEmployee from "./pages/ViewEmployee.jsx";
+import Heading from "./components/heading/Heading.jsx";
 
 const Router = () => {
   return (

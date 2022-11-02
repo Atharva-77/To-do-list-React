@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
-import Input from "../Input/Input";
+import Input from "../input/Input";
 import Button from "../button/Button";
-import "./Form.css";
+import "./form.css";
 
 const Form = () => {
   const navigate = useNavigate();

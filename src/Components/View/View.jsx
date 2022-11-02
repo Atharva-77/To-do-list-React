@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import EmployeeContext from "../../services/context/EmployeeContext";
-import "./View.css";
+import "./view.css";
 
 const View = ({ firstName, lastName, employeeId, age }) => {
   const { employeeDetails, setEmployeeDetails } = useContext(EmployeeContext);

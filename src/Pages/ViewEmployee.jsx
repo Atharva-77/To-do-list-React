@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import View from "../Components/View/View";
+import View from "../components/view/View";
 import EmployeeContext from "../services/context/EmployeeContext";
 
 const ViewEmployee = () => {

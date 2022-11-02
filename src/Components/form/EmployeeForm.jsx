@@ -106,7 +106,7 @@ const EmployeeForm = () => {
               />
             </div>
 
-            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} />
+            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} className="buttonForm"/>
           </div>
         </form>
       </div>

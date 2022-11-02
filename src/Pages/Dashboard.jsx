@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./dashboard.css";
+import Button from "../components/button/Button";
 
 const Dashboard = () => {
   return (
     <div>
       <Link to={{ pathname: `/add-employee` }}>
-        <button className="addEmployeeButton">Add Employee</button>
+        <Button label="Add Employee" className="buttonDashBoard"/>
       </Link>
 
       <Link to={{ pathname: `/view-employees` }}>
-        <button className="addEmployeeButton">View Employee</button>
+        <Button label="View Employee" className="buttonDashBoard"/>
       </Link>
     </div>
   );

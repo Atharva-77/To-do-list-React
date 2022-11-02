@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import "./button.css";
 
-const Button = ({ label, disabled }) => {
+const Button = ({ label, disabled, className }) => {
   return (
-    <button disabled={disabled} type="submit" className="buttonAddUpdate">
+    <button disabled={disabled} type="submit" className={className}>
       {label}
     </button>
   );

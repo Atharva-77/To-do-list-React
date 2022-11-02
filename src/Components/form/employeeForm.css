@@ -34,17 +34,3 @@
   height: 20px;
   width: 180px;
 }
-
-.buttonAddUpdate {
-  padding: 5px;
-  margin-bottom: 10px;
-  background-color: var(--light-blue);
-  font-weight: 550;
-  border: 1px solid var(--black);
-  width: 91%;
-}
-
-.buttonAddUpdate:hover {
-  font-weight: 750;
-  background-color: var(--blue);
-}

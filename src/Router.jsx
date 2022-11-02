@@ -14,6 +14,7 @@ const Router = () => {
         <Route path="/add-employee" element={<EmployeeForm />} />
         <Route path="/view-employees" element={<ViewList />} />
         <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

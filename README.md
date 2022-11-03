@@ -8,7 +8,7 @@ Download the entire code.
 Do `npm install`. This will install all the node modules.  
 Do `npm start`. This will run your code & the website opens on your localhost.
 
-### If localhost dosen't work then try 1 of the following steps
+## If localhost dosen't work then try one of the following steps
 
 1. Disable the firewall.
 2. If you are using vscode, open `.vscode/launch.json`. Check the `url's port number inside it`. After that click on `add configuration` and launch chrome. `Save & Run` the file.

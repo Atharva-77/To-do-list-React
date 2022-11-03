@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { employeeAddAction, employeeDeleteAction } from '../redux/actions'
+import { employeeDeleteAction } from '../redux/actions'
 import TableRow from "../components/table/TableRow";
 import "./viewList.css";
 
-const ViewList = ({employees,employeeAddAction,employeeDeleteAction}) => {
+const ViewList = ({employees,employeeDeleteAction}) => {
   const deleteEmployee = (employeeId) => {
     const leftOverEmployee = employees.filter(
       (employee) => employee.employeeId !== employeeId
@@ -58,10 +58,8 @@ const mapStateToProps = state =>
 const mapDispatchToProps = dispatch =>
 {
   return {
-    employeeAddAction: (employee) => dispatch(employeeAddAction(employee)),
     employeeDeleteAction:(employee) => dispatch(employeeDeleteAction(employee))
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewList)
-// export default ViewList;

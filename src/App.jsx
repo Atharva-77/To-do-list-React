@@ -5,7 +5,6 @@ import store from './redux/store.jsx'
 import "./app.css";
 
 const App = () => {
-
   return (
     <Provider store={store}>
         <div className="App">

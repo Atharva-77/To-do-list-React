@@ -14,7 +14,7 @@ const TableRow = ({ firstName, lastName, employeeId, age, deleteEmployee }) => {
 
       <td>
         <div className="editContainer">
-          <LinkComponent path={`/update-employee/${employeeId}`} className={"link"}>
+          <LinkComponent path={`/update-employee/${employeeId}`}>
             <span className="editSpan"> Edit </span>
           </LinkComponent>
         </div>

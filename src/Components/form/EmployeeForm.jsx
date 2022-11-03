@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { useParams,useNavigate } from "react-router";
 import EmployeeContext from "../../services/context/EmployeeContext";
 import Input from "../input/Input";
 import Button from "../button/Button";
@@ -105,7 +104,7 @@ const EmployeeForm = () => {
               />
             </div>
 
-            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} className="buttonForm"/>
+            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} type="submit" className="buttonForm"/>
           </div>
         </form>
       </div>

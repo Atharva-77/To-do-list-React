@@ -1,10 +1,10 @@
 import React from "react";
-import LinkComponent from "../link/Link";
+import LinkComponent from "../components/link/Link.jsx";
 import "./heading.css";
 
 const Heading = () => {
   return (
-    <LinkComponent path={'/'} className="link">
+    <LinkComponent path={'/'}>
        <h2 className="headingDiv">To-Do-List</h2>
     </LinkComponent>
   );

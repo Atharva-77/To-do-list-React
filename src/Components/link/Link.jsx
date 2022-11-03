@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import './link.css'
 
-const LinkComponent = ({path,className,children}) => {
+const LinkComponent = ({path,children}) => {
   return (
-       <Link to={{ pathname: path }} className={className}>
+       <Link to={{ pathname: path }} className="link">
          {children}
        </Link>
   );
@@ -13,7 +13,6 @@ const LinkComponent = ({path,className,children}) => {
 
 LinkComponent.propTypes = {
   path: PropTypes.string,
-  className: PropTypes.string
 };
 
 export default LinkComponent;

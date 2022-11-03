@@ -6,11 +6,11 @@ const Dashboard = () => {
   return (
     <div>
       <LinkComponent path={`/add-employee`}>
-          <Button label="Add Employee" className="buttonDashBoard"/>
+          <Button label="Add Employee" type="button" className="buttonDashBoard"/>
       </LinkComponent>
   
       <LinkComponent path={`/view-employees`}>
-        <Button label="View Employee" className="buttonDashBoard"/>
+        <Button label="View Employee" type="button" className="buttonDashBoard"/>
       </LinkComponent>
     </div>
   );

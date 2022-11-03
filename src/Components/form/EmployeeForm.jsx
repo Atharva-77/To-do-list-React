@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { connect } from 'react-redux'
 import { employeeAddAction } from '../../redux/actions'
-import EmployeeContext from "../../services/context/EmployeeContext";
 import Input from "../input/Input";
 import Button from "../button/Button";
 import "./employeeForm.css";
@@ -10,13 +9,11 @@ import "./employeeForm.css";
 const EmployeeForm = ({employees,employeeAddAction}) => {
   const [employeeInformation, setEmployeeInformation] = useState({});
   const [idPresentBefore, setIdPresentBefore] = useState(false);
-  // const { employees, setEmployees } = useContext(EmployeeContext);
   const { id } = useParams();
   const navigate = useNavigate();
   const isFormFilled = Object.keys(employeeInformation).length;
 
   useEffect(() => {
-    // console.log("EMPloyees",employees);
     const employee = employees.find(
       (employee) => employee.employeeId === id
     );
@@ -31,15 +28,11 @@ const EmployeeForm = ({employees,employeeAddAction}) => {
     if (id) {
       const existingEmployeeIndex = employees.findIndex(
         (employee) => employee.employeeId === employeeInformation.employeeId
-      );
-      console.log("EXIST", existingEmployeeIndex);
+      );    
       
       employees[existingEmployeeIndex] = employeeInformation;
       navigate("/view-employees");
     } else {
-      // setEmployees([...employees, employeeInformation]);
-      // navigate("/view-employees");
-      console.log("EMP-INFO", employees);
       employeeAddAction(employeeInformation)
       navigate("/view-employees");
     }
@@ -135,4 +128,3 @@ const mapDispatchToProps = dispatch =>
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeForm)
-// export default EmployeeForm;

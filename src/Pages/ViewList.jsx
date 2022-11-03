@@ -1,23 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { connect } from 'react-redux'
 import { employeeAddAction, employeeDeleteAction } from '../redux/actions'
-
 import TableRow from "../components/table/TableRow";
-import EmployeeContext from "../services/context/EmployeeContext";
 import "./viewList.css";
 
 const ViewList = ({employees,employeeAddAction,employeeDeleteAction}) => {
-  // const { employees,setEmployees } = useContext(EmployeeContext);
- 
   const deleteEmployee = (employeeId) => {
     const leftOverEmployee = employees.filter(
       (employee) => employee.employeeId !== employeeId
     );
-    // console.log("Deleted", leftOverEmployee);
+
     employees = leftOverEmployee;
     employeeDeleteAction(employees);
-    console.log("employees",employees);
-    // setEmployees(leftOverEmployee);
   };
   return (
     <table>

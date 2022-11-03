@@ -5,6 +5,7 @@ const addEmployee = (data) =>
     payload: data
   }
 }
+
 const deleteEmployee = (data) =>
 {
   return {
@@ -12,22 +13,15 @@ const deleteEmployee = (data) =>
     payload: data
   }
 }
+
 export const employeeAddAction = (data) =>
 {
-  return (dispatch) => {
-    // console.log("ACT-DATA",data);
-    dispatch(addEmployee(data))
-    
-  }
+  return (dispatch) => dispatch(addEmployee(data))
 }
 
 export const employeeDeleteAction = (data) =>
 {
-  return (dispatch) => {
-    console.log("ACT-DATA",data);
-    dispatch(deleteEmployee(data))
-    
-  }
+  return (dispatch) => dispatch(deleteEmployee(data))
 }
 // export const employeeDeleteAction = () =>async(dispatch)=>
 // {

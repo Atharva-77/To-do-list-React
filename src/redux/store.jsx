@@ -1,6 +1,5 @@
 import { combineReducers,legacy_createStore as createStore , applyMiddleware } from 'redux'
 import { employeeReducer } from './reducers'
-// import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 
 const rootReducer = combineReducers({

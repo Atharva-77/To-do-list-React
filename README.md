@@ -4,8 +4,8 @@ This is a react website that allows you to add an employee by filling it's detai
 
 ## How to run
 
-Download the entire code by typing this in your terminal:- ```git clone https://github.com/Atharva-77/To-do-list-React.git```    
-Go to the directory where the folder has been installed. Use `cd folderName` to enter the given directory.  
+Download the entire code by typing this in your terminal:- `git clone https://github.com/Atharva-77/To-do-list-React.git`  
+Go to the directory where the folder has been installed. Use `cd folderName` to enter the given directory.
 Do `npm install`. This will install all the node modules.  
 Do `npm start`. This will run your code & the website opens on your localhost.
 

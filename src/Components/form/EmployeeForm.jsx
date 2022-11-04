@@ -11,7 +11,8 @@ const EmployeeForm = () => {
   const { employees, setEmployees } = useContext(EmployeeContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const isFormFilled = Object.keys(employeeInformation).length;
+  const formKeysLength = Object.keys(employeeInformation).length;
+  const disabledValue=idPresentBefore || formKeysLength < 4;
 
   useEffect(() => {
     const employee = employees.find(
@@ -104,7 +105,7 @@ const EmployeeForm = () => {
               />
             </div>
 
-            <Button disabled={idPresentBefore || isFormFilled < 4 ? true : false} label={id ? "Update Details" : "Add Employee"} type="submit" className="buttonForm"/>
+            <Button disabled={disabledValue ? true : false} label={id ? "Update Details" : "Add Employee"} type="submit" className="buttonForm"/>
           </div>
         </form>
       </div>

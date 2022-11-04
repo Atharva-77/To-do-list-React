@@ -11,8 +11,13 @@ const LinkComponent = ({path,children}) => {
   );
 };
 
+LinkComponent.defaultProps = {
+  path: "/"
+}
+
 LinkComponent.propTypes = {
-  path: PropTypes.string,
+  path: PropTypes.string.isRequired,
+  children: PropTypes.node
 };
 
 export default LinkComponent;

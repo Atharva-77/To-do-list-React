@@ -28,13 +28,14 @@ const Input = ({
 };
 
 Input.defaultProps = {
-  disabled: false
+  disabled: false,
+  type:"text"
 }
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

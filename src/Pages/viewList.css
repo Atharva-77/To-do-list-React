@@ -8,5 +8,5 @@ table {
 th,
 td {
   padding: 5px;
-  border: 1px gray solid;
+  border: 1px solid var(--gray);
 }

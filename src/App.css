@@ -6,8 +6,10 @@
   --dark-blue: rgb(59, 130, 246);
   --red: rgb(255, 0, 0);
   --light-green: rgb(45, 176, 45);
-  --black: black;
+  --black: rgb(0, 0, 0);
+  --gray: rgb(128, 128, 128);
 }
+
 .App {
   text-align: center;
 }

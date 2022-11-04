@@ -7,6 +7,5 @@
 .spanElement {
   color: var(--dark-blue);
   font-weight: 600;
-  font-size: large;
-  margin: auto;
+  font-size: 18px;
 }

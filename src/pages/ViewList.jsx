@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { employeeDeleteAction } from '../redux/actions'
+import { mapStateToProps,mapDispatchToProps } from "../components/mapStateDispatchProps/MapStateDispatchProps.jsx";
 import TableRow from "../components/table/TableRow";
 import "./viewList.css";
 
@@ -47,19 +47,5 @@ const ViewList = ({employees,employeeDeleteAction}) => {
     </table>
   );
 };
-
-const mapStateToProps = state =>
-{
-  return {
-    employees:state.empReducer.employees
-  }
-}
-
-const mapDispatchToProps = dispatch =>
-{
-  return {
-    employeeDeleteAction:(employee) => dispatch(employeeDeleteAction(employee))
-  }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewList)

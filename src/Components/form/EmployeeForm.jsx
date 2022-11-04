@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { connect } from 'react-redux'
-import { employeeAddAction } from '../../redux/actions'
+import { mapStateToProps,mapDispatchToProps } from "../mapStateDispatchProps/MapStateDispatchProps.jsx"
 import Input from "../input/Input";
 import Button from "../button/Button";
 import "./employeeForm.css";
@@ -112,19 +112,5 @@ const EmployeeForm = ({employees,employeeAddAction}) => {
     </div>
   );
 };
-
-const mapStateToProps = state =>
-{
-  return {
-    employees:state.empReducer.employees
-  }
-}
-
-const mapDispatchToProps = dispatch =>
-{
-  return {
-    employeeAddAction:(employee)=>dispatch(employeeAddAction(employee))
-  }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeForm)

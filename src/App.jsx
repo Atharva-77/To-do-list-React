@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EmployeeContext from "./services/context/EmployeeContext";
 import Router from "./Router";
-import "./app.css";
+import "./App.css";
 
 const App = () => {
   const [employees, setEmployees] = useState([]);

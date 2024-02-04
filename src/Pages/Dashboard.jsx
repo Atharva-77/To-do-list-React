@@ -1,6 +1,6 @@
 import React from "react";
-import Button from "../components/button/Button";
-import LinkComponent from "../components/link/Link";
+import Button from "../Components/button/Button";
+import LinkComponent from "../Components/link/Link";
 
 const Dashboard = () => {
   return (

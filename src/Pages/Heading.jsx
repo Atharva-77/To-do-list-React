@@ -1,5 +1,5 @@
 import React from "react";
-import LinkComponent from "../components/link/Link.jsx";
+import LinkComponent from "../Components/link/Link.jsx";
 import "./heading.css";
 
 const Heading = () => {

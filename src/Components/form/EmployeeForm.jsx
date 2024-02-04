@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams,useNavigate } from "react-router";
 import EmployeeContext from "../../services/context/EmployeeContext";
-import Input from "../input/Input";
+import Input from "../Input/Input";
 import Button from "../button/Button";
 import "./employeeForm.css";
 

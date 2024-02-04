@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import TableRow from "../components/table/TableRow";
+import TableRow from "../Components/table/TableRow";
 import EmployeeContext from "../services/context/EmployeeContext";
 import "./viewList.css";
 
